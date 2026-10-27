@@ -1,0 +1,1957 @@
+<!DOCTYPE html><html><head><meta charset="utf8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+
+<meta charset="utf8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style>
+
+<meta charset="utf8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style>
+
+<meta charset="utf8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style>
+
+<meta charset="utf8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style>
+
+<meta charset="utf8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style>
+<title>Planner CONAG</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&amp;family=Mulish:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&amp;display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+:root {
+  --green:       #3DB54A;
+  --green-dim:   rgba(61,181,74,0.12);
+  --green-glow:  rgba(61,181,74,0.22);
+  --teal:        #00B0A8;
+  --teal-dim:    rgba(0,176,168,0.12);
+  --gradient:    linear-gradient(90deg,#3DB54A,#00B0A8);
+  --gradient135: linear-gradient(135deg,#3DB54A,#00B0A8);
+
+  --bg:          #0F1310;
+  --surface:     #161A17;
+  --surface2:    #1E2420;
+  --surface3:    #252C27;
+  --border:      rgba(255,255,255,0.07);
+  --border2:     rgba(255,255,255,0.13);
+
+  --text:        #EFF1EE;
+  --text2:       #8C9489;
+  --text3:       #576054;
+
+  --red:         #E05252;
+  --red-dim:     rgba(224,82,82,0.12);
+  --amber:       #D4903A;
+  --amber-dim:   rgba(212,144,58,0.12);
+  --purple:      #8B7FD4;
+  --purple-dim:  rgba(139,127,212,0.12);
+
+  --r-sm: 6px; --r-md: 10px; --r-lg: 14px; --r-pill: 999px;
+  --ease: cubic-bezier(0.2,0.6,0.2,1);
+}
+
+html,body { background: var(--bg); }
+body {
+  font-family: 'Mulish', -apple-system, sans-serif;
+  font-weight: 400;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+.icon { display:inline-block; width:1em; height:1em; vertical-align:-0.14em; }
+.chev { display:inline-block; transition: transform 160ms var(--ease); }
+.chev.open { transform: rotate(180deg); }
+
+.banner {
+  background: var(--teal-dim);
+  color: var(--teal);
+  border-bottom: 0.5px solid rgba(0,176,168,0.25);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 7px 24px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.topbar {
+  background: rgba(22,26,23,0.9);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 0.5px solid var(--border);
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  height: 56px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  gap: 0;
+}
+
+.brand { display: flex; align-items: center; gap: 8px; margin-right: 32px; font-family: 'Archivo Black', sans-serif; font-size: 15px; letter-spacing: 0.01em; }
+.brand-icon { width: 24px; height: 24px; object-fit: contain; display: block; }
+
+.nav { display: flex; height: 100%; }
+.ntab { padding: 0 16px; font-size: 13px; font-weight: 600; color: var(--text2); cursor: pointer; border: none; background: none; border-bottom: 2px solid transparent; display: flex; align-items: center; gap: 6px; transition: color 140ms var(--ease); }
+.ntab:hover { color: var(--text); }
+.ntab.on { color: var(--green); border-bottom-color: var(--green); }
+
+.hright { margin-left: auto; display: flex; align-items: center; gap: 8px; }
+.dlbl { font-size: 11px; color: var(--text3); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; }
+
+.pg { display: none; padding: 20px 24px 60px; max-width: 1400px; margin: 0 auto; }
+.pg.on { display: block; }
+
+.g3 { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 14px; }
+.cb-scroll { max-height: 252px; overflow-y: auto; }
+.taskitem-comment { font-size: 11px; color: var(--text2); font-style: italic; margin: 2px 0 6px 26px; padding: 6px 9px; background: var(--surface2); border-radius: var(--r-sm); border-left: 2px solid var(--green); }
+.g2 { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 14px; }
+@media (max-width: 1000px) { .g3, .g2 { grid-template-columns: 1fr; } }
+
+.card { background: var(--surface); border: 0.5px solid var(--border); border-radius: var(--r-lg); overflow: hidden; display: flex; flex-direction: column; }
+.card-accent { border-left: 3px solid var(--green); }
+.ch { padding: 14px 16px 0; display: flex; align-items: center; justify-content: space-between; gap:10px; }
+.ct { font-size: 10px; font-weight: 700; letter-spacing: 0.16em; color: var(--text3); text-transform: uppercase; }
+.cb { padding: 10px 16px 16px; flex: 1; }
+
+.badge { font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: var(--r-pill); white-space: nowrap; letter-spacing: 0.04em; }
+.b-green  { background: var(--green-dim);  color: var(--green); }
+.b-teal   { background: var(--teal-dim);   color: var(--teal); }
+.b-amber  { background: var(--amber-dim);  color: var(--amber); }
+.b-red    { background: var(--red-dim);    color: var(--red); }
+.b-purple { background: var(--purple-dim); color: var(--purple); }
+.b-gray   { background: var(--surface2);   color: var(--text2); border: 0.5px solid var(--border2); }
+
+.evitem { display: flex; gap: 10px; align-items: flex-start; padding: 9px 11px; border-radius: var(--r-md); background: var(--surface2); margin-bottom: 6px; }
+.evtime { font-size: 11px; color: var(--text3); min-width: 56px; padding-top: 1px; line-height: 1.4; font-weight: 700; }
+.evdot { width: 6px; height: 6px; border-radius: 50%; margin-top: 5px; flex-shrink: 0; }
+.evinfo { flex: 1; min-width: 0; }
+.evtit { font-size: 13px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.evsub { font-size: 11px; color: var(--text3); margin-top: 1px; }
+
+.taskitem { display: flex; align-items: flex-start; gap: 10px; padding: 9px 11px; border-radius: var(--r-md); border: 0.5px solid var(--border); margin-bottom: 6px; }
+.taskitem label { display:flex; align-items:center; gap:10px; flex:1; cursor:pointer; min-width:0; }
+.taskitem input[type=checkbox] { width:16px; height:16px; cursor:pointer; accent-color: var(--green); flex-shrink:0; }
+.ttit { font-size: 13px; font-weight: 600; }
+.ttit.x { text-decoration: line-through; color: var(--text3); }
+
+.sbar { display: flex; gap: 6px; padding: 8px 16px; background: var(--surface2); border-top: 0.5px solid var(--border); flex-wrap: wrap; align-items: center; font-size:11px; color:var(--text3); font-weight:600; }
+
+.mrow3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 9px; margin-bottom: 14px; }
+.mcell { background: var(--surface2); border-radius: var(--r-md); padding: 12px 14px; border-left: 3px solid var(--green); }
+.ml { font-size: 10px; font-weight: 700; color: var(--text3); margin-bottom: 4px; letter-spacing: 0.1em; text-transform: uppercase; }
+.mv { font-size: 22px; font-weight: 700; font-family: 'Archivo Black', sans-serif; }
+.ms { font-size: 11px; color: var(--text3); margin-top: 2px; font-weight: 500; }
+
+.bar-track { background: var(--surface2); border-radius: 3px; height: 8px; overflow: hidden; }
+.bar-fill { height: 100%; border-radius: 3px; }
+
+.fricheck { display:flex; align-items:center; gap:10px; padding:8px 4px; }
+.fricheck input { width:16px;height:16px;accent-color:var(--teal); }
+.fricheck.done .ttit { text-decoration:line-through; color:var(--text3); }
+
+.status-sel { position: relative; display: inline-block; }
+.status-btn { font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: var(--r-pill); cursor: pointer; border: none; display: flex; align-items: center; gap: 3px; letter-spacing: 0.04em; }
+.status-dropdown { position: absolute; top: 110%; right: 0; background: var(--surface2); border: 0.5px solid var(--border2); border-radius: var(--r-md); box-shadow: 0 8px 24px rgba(0,0,0,0.5); z-index: 50; min-width: 160px; display: none; overflow: hidden; }
+.status-dropdown.open { display: block; }
+.status-opt { padding: 9px 13px; font-size: 12px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 9px; }
+.status-opt:hover { background: var(--surface3); }
+.status-opt .dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+.ftabs { display: flex; border-bottom: 0.5px solid var(--border); margin-bottom: 10px; flex-wrap:wrap; }
+.ftab { padding: 8px 14px; font-size: 12px; font-weight: 600; color: var(--text3); cursor: pointer; border: none; background: none; border-bottom: 2px solid transparent; }
+.ftab:hover { color: var(--text2); }
+.ftab.on { color: var(--green); border-bottom-color: var(--green); }
+.fsrch { padding: 6px 11px; font-size: 12px; border: 0.5px solid var(--border2); border-radius: var(--r-pill); background: var(--surface2); color: var(--text); width: 170px; font-family: 'Mulish', sans-serif; }
+.fsrch:focus { outline: none; border-color: var(--green); }
+
+.jth { cursor: pointer; user-select: none; white-space: nowrap; }
+.jth:hover { color: var(--text2); }
+.sic { font-size: 9px; opacity: .6; margin-left: 3px; }
+
+.tbl { width: 100%; border-collapse: collapse; font-size: 12px; }
+.tbl th { text-align: left; padding: 6px 9px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text3); border-bottom: 0.5px solid var(--border); }
+.tbl td { padding: 8px 9px; border-bottom: 0.5px solid var(--border); vertical-align: middle; }
+.tbl tr:last-child td { border-bottom: none; }
+.tbl tr:hover td { background: var(--surface2); }
+.tbl tr.done-row td { opacity: .45; }
+.tbl tr.done-row .ttbl { text-decoration: line-through; }
+.jkey { font-size: 10.5px; color: var(--teal); font-weight: 700; font-family: 'SFMono-Regular',Consolas,monospace; }
+.tbl-wrap { max-height: 460px; overflow: auto; }
+
+.empty { text-align: center; padding: 24px; color: var(--text3); font-size: 12px; font-weight: 500; }
+
+.agenda-nav { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+.agenda-nav-btn { padding: 6px 12px; font-size: 12px; font-weight: 600; color: var(--text2); background: var(--surface); border: 0.5px solid var(--border2); border-radius: var(--r-pill); cursor: pointer; }
+.agenda-nav-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+.agenda-nav-btn.hoje { background: var(--green-dim); color: var(--green); border-color: rgba(61,181,74,0.3); }
+.semana-label { font-family: 'Archivo Black', sans-serif; font-size: 14px; flex: 1; text-align: center; }
+.agenda-layout { display: grid; grid-template-columns: 1fr 320px; gap: 16px; align-items: start; }
+@media (max-width: 1000px) { .agenda-layout { grid-template-columns: 1fr; } }
+.grade-wrap { background: var(--surface); border: 0.5px solid var(--border); border-radius: var(--r-lg); overflow: hidden; }
+.grade-header { display: grid; grid-template-columns: 48px repeat(5,1fr); border-bottom: 0.5px solid var(--border); }
+.grade-header-cell { padding: 10px 6px; font-size: 11px; font-weight: 700; text-align: center; color: var(--text2); border-right: 0.5px solid var(--border); letter-spacing: 0.06em; }
+.grade-header-cell:last-child { border-right: none; }
+.grade-header-cell.hoje { color: var(--green); background: var(--green-dim); }
+.grade-body { position: relative; overflow-y: auto; max-height: 600px; }
+.grade-row { display: grid; grid-template-columns: 48px repeat(5,1fr); border-bottom: 0.5px solid var(--border); min-height: 48px; }
+.grade-row:last-child { border-bottom: none; }
+.grade-hour { padding: 5px 7px; font-size: 10px; font-weight: 700; color: var(--text3); text-align: right; border-right: 0.5px solid var(--border); }
+.grade-cell { border-right: 0.5px solid var(--border); position: relative; }
+.grade-cell:last-child { border-right: none; }
+.grade-event { position: absolute; left: 2px; right: 2px; border-radius: 5px; padding: 3px 6px; font-size: 11px; font-weight: 700; overflow: hidden; z-index: 2; line-height: 1.3; }
+.lista-wrap { background: var(--surface); border: 0.5px solid var(--border); border-radius: var(--r-lg); overflow: hidden; }
+.lista-dia { border-bottom: 0.5px solid var(--border); }
+.lista-dia:last-child { border-bottom: none; }
+.lista-dia-header { padding: 9px 15px; font-size: 11px; font-weight: 700; background: var(--surface2); color: var(--text2); display: flex; align-items: center; justify-content: space-between; text-transform: uppercase; letter-spacing: 0.08em; }
+.lista-dia-header.hoje { color: var(--green); }
+.lista-ev { display: flex; align-items: flex-start; gap: 10px; padding: 9px 15px; border-top: 0.5px solid var(--border); }
+.lista-ev-time { font-size: 11px; font-weight: 700; color: var(--text3); min-width: 88px; white-space: nowrap; }
+.lista-ev-info { flex: 1; min-width: 0; }
+.lista-ev-title { font-size: 13px; font-weight: 700; }
+.lista-ev-sub { font-size: 11px; color: var(--text3); margin-top: 2px; font-weight: 500; }
+.lista-ev-hours { font-size: 10.5px; font-weight: 700; padding: 2px 8px; border-radius: var(--r-pill); background: var(--green-dim); color: var(--green); white-space: nowrap; }
+.lista-ev-hours.pend { background: var(--amber-dim); color: var(--amber); }
+.lista-ev-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 6px; }
+.lista-ev-tag { font-size: 9.5px; font-weight: 700; padding: 2px 7px; border-radius: var(--r-sm); background: var(--surface3); color: var(--text2); }
+.horas-stats { display: flex; gap: 18px; flex-wrap: wrap; align-items: baseline; }
+.horas-stat-num { font-family: 'Archivo Black', sans-serif; font-size: 22px; }
+.horas-stat-lbl { font-size: 10.5px; color: var(--text3); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-left: 5px; }
+.horas-por-dia { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px; }
+.horas-dia-chip { font-size: 11px; font-weight: 700; padding: 5px 10px; border-radius: var(--r-md); background: var(--surface2); }
+.horas-dia-chip .d { color: var(--text2); font-weight: 600; margin-right: 5px; }
+.ev-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; margin-top: 4px; }
+
+.donut-wrap { display:flex; align-items:center; gap:18px; }
+.legend { display:flex; gap:12px; flex-wrap:wrap; padding: 0 16px 12px; }
+.legend span { display:flex; align-items:center; gap:5px; font-size:11px; color:var(--text2); font-weight:600; }
+.legend i { width:9px; height:9px; border-radius:2px; display:inline-block; }
+
+.cbar-row { display:grid; grid-template-columns: 130px 1fr 80px; gap:10px; align-items:center; margin-bottom:10px; }
+.cbar-name { font-size:12px; font-weight:700; color:var(--text2); }
+.cbar-track { display:flex; height:14px; border-radius:4px; overflow:hidden; background:var(--surface2); }
+.cbar-nums { font-size:11px; color:var(--text3); font-weight:600; text-align:right; }
+
+footer.pfoot { text-align:center; padding:24px; font-size:11px; color:var(--text3); }
+
+/* ── MODAL ── */
+.modal-overlay { position:fixed; inset:0; background:rgba(6,8,6,0.7); z-index:300; display:none; align-items:flex-start; justify-content:center; padding:5vh 24px; overflow-y:auto; }
+.modal-overlay.open { display:flex; }
+.modal-panel { background:var(--surface); border:0.5px solid var(--border2); border-radius:var(--r-lg); max-width:640px; width:100%; box-shadow:0 24px 60px rgba(0,0,0,0.5); }
+.modal-head { padding:18px 22px; border-bottom:0.5px solid var(--border); display:flex; align-items:flex-start; justify-content:space-between; gap:14px; }
+.modal-close { background:var(--surface2); border:0.5px solid var(--border2); color:var(--text2); cursor:pointer; font-size:14px; width:28px; height:28px; border-radius:var(--r-sm); flex-shrink:0; }
+.modal-close:hover { color:var(--text); }
+.modal-body { padding:18px 22px 22px; }
+.modal-section { margin-bottom:20px; }
+.modal-section:last-child { margin-bottom:0; }
+.modal-section h4 { font-size:10px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--text3); margin-bottom:9px; }
+.modal-resumo { background:var(--surface2); border-radius:var(--r-md); padding:12px 14px; font-size:13px; line-height:1.6; color:var(--text2); font-style:italic; }
+.modal-list { list-style:none; display:flex; flex-direction:column; gap:7px; }
+.modal-list li { background:var(--surface2); border-left:3px solid var(--sev,var(--border2)); border-radius:0 var(--r-md) var(--r-md) 0; padding:9px 12px; font-size:12.5px; line-height:1.5; }
+.modal-list li strong { color:var(--text); }
+.modal-list.pend li { --sev: var(--amber); }
+.modal-list.cli li { --sev: var(--green); }
+.modal-list.prog li { --sev: var(--teal); }
+.modal-list.next li { --sev: var(--purple); }
+.vchips { display:flex; flex-wrap:wrap; gap:5px; margin-top:7px; align-items:center; }
+.vchip { display:inline-flex; align-items:center; gap:4px; font-size:11px; font-weight:600; color:var(--text2); background:var(--surface3); border:0.5px solid var(--border2); border-radius:var(--r-sm); padding:2px 3px 2px 7px; max-width:100%; }
+.vchip-vazio { font-style:italic; color:var(--text3); padding-right:7px; }
+.vchip-x { background:none; border:none; color:var(--text3); cursor:pointer; font-size:13px; line-height:1; padding:0 4px; border-radius:4px; }
+.vchip-x:hover { color:var(--red); background:var(--red-dim); }
+.vchip-add { background:none; border:0.5px dashed var(--border2); color:var(--text3); font-size:10.5px; font-weight:700; border-radius:var(--r-sm); padding:2px 7px; cursor:pointer; font-family:inherit; }
+.vchip-add:hover { color:var(--green); border-color:var(--green); }
+.vchip-aj { font-size:9.5px; font-weight:700; color:var(--amber); text-transform:uppercase; letter-spacing:0.06em; }
+.vbusca { margin-top:8px; }
+.vbusca-res { display:flex; flex-direction:column; gap:3px; margin-top:5px; max-height:220px; overflow-y:auto; }
+.vbusca-item { text-align:left; background:var(--surface); border:0.5px solid var(--border); color:var(--text); font-family:inherit; font-size:11.5px; padding:6px 8px; border-radius:var(--r-sm); cursor:pointer; }
+.vbusca-item:hover { border-color:var(--green); background:var(--surface3); }
+.vbusca-ep { display:block; font-size:10px; color:var(--text3); margin-top:1px; }
+.evitem.clickable { cursor:pointer; transition:background 140ms var(--ease); }
+.evitem.clickable:hover { background:var(--surface3); }
+.ev-day-tag { font-size:9.5px; font-weight:700; color:var(--text3); text-transform:uppercase; letter-spacing:0.06em; }
+
+.cli-section-title { display:flex; align-items:center; gap:8px; font-size:11px; font-weight:800; letter-spacing:0.1em; text-transform:uppercase; color:var(--text3); margin:20px 0 10px; }
+.cli-section-title:first-child { margin-top:0; }
+.cli-section-count { background:var(--surface2); color:var(--text2); border-radius:var(--r-pill); padding:1px 8px; font-size:10.5px; font-weight:700; }
+.cli-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; margin-bottom:4px; }
+@media (max-width: 900px) { .cli-grid { grid-template-columns:1fr; } }
+.cli-card { background:var(--surface); border:0.5px solid var(--border); border-left:3px solid var(--border2); border-radius:var(--r-md); padding:11px 13px; cursor:pointer; transition:background 140ms var(--ease), border-color 140ms var(--ease); }
+.cli-card:hover { background:var(--surface2); }
+.cli-card.cat-mine { border-left-color:var(--green); }
+.cli-card.cat-other { border-left-color:var(--teal); }
+.cli-card.cat-finished { border-left-color:var(--text3); opacity:0.82; }
+.cli-card-top { display:flex; align-items:flex-start; justify-content:space-between; gap:8px; margin-bottom:4px; }
+.cli-name { font-size:13.5px; font-weight:700; }
+.cli-consultor { font-size:10.5px; color:var(--text3); font-weight:600; white-space:nowrap; }
+.cli-status { font-size:11.5px; color:var(--text2); line-height:1.45; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+.cli-meta { display:flex; gap:10px; margin-top:7px; flex-wrap:wrap; }
+.cli-meta span { font-size:10px; font-weight:700; color:var(--text3); }
+.cli-meta span.has { color:var(--amber); }
+.cli-empty { text-align:center; padding:20px; color:var(--text3); font-size:12px; font-weight:500; }
+
+/* ── Impressão de relatório de cliente (PDF via Ctrl+P / Salvar como PDF) ── */
+.print-area { display:none; }
+@media print {
+  body > *:not(.print-area) { display:none !important; }
+  .print-area { display:block !important; position:static; }
+  @page { size: A4; margin: 16mm; }
+}
+.pr-cover { page-break-after: always; }
+.pr-logo { width: 110px; height: auto; display: block; margin-bottom: 40px; }
+.pr-eyebrow { font-family: 'Mulish', sans-serif; font-weight: 700; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: #8C8C8C; }
+.pr-title { font-family: 'Archivo Black', sans-serif; font-size: 34px; color: #1A1F1B; margin: 14px 0 12px; }
+.pr-sub { font-size: 13px; color: #3A3F3B; font-weight: 300; max-width: 480px; margin-bottom: 18px; }
+.pr-rule { width: 56px; height: 4px; border: 0; background: linear-gradient(90deg,#3DB54A,#00B0A8); border-radius: 999px; margin: 0 0 22px; }
+.pr-meta { display: grid; grid-template-columns: 150px 1fr; row-gap: 10px; column-gap: 14px; max-width: 480px; font-family: 'Mulish', sans-serif; }
+.pr-meta .k { font-size: 10px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: #8C8C8C; }
+.pr-meta .v { font-size: 13px; color: #1A1F1B; font-weight: 500; }
+.pr-body { font-family: 'Mulish', sans-serif; font-size: 12.5px; line-height: 1.6; color: #3A3F3B; }
+.pr-section { break-inside: avoid-page; margin-top: 26px; }
+.pr-section:first-of-type { margin-top: 0; }
+.pr-section-head { display: flex; align-items: baseline; gap: 9px; margin-bottom: 10px; break-after: avoid; }
+.pr-num { font-family: 'Archivo Black', sans-serif; font-size: 13px; color: #00B0A8; }
+.pr-section-title { font-family: 'Archivo Black', sans-serif; font-size: 18px; color: #1A1F1B; }
+.pr-p { margin: 0 0 12px; }
+.pr-p:last-child { margin-bottom: 0; }
+.pr-plain { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 7px; }
+.pr-plain li { padding-left: 16px; position: relative; }
+.pr-plain li::before { content: '\2022'; position: absolute; left: 1px; color: #00B0A8; font-weight: 700; }
+.pr-plain li strong { color: #1A1F1B; }
+.pr-risco { display: flex; gap: 10px; align-items: flex-start; margin-bottom: 10px; break-inside: avoid; }
+.pr-risco-badge { flex-shrink: 0; width: 19px; height: 19px; border-radius: 50%; background: linear-gradient(90deg,#3DB54A,#00B0A8); color: #fff; font-weight: 700; font-size: 10px; display: flex; align-items: center; justify-content: center; margin-top: 1px; }
+.pr-footer { position: fixed; bottom: 8mm; left: 0; right: 0; text-align: center; font-size: 9px; color: #8C8C8C; font-family: 'Mulish', sans-serif; }
+</style>
+
+<header class="topbar">
+  <div class="brand"><img class="brand-icon" src="data:image/png;base64,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" alt="CONAG">Planner CONAG</div>
+  <nav class="nav">
+    <button class="ntab on" onclick="swPage('p1',this)">Esta semana</button>
+    <button class="ntab" onclick="swPage('p2',this)">Agenda</button>
+    <button class="ntab" onclick="swPage('p3',this)">Catálogo × Atas</button>
+    <button class="ntab" onclick="swPage('p4',this)">Painel Executivo</button>
+    <button class="ntab" onclick="swPage('p5',this)">Clientes</button>
+  </nav>
+  <div class="hright"><span class="dlbl" id="dlbl"></span></div>
+</header>
+
+<!-- ═══════════════ PÁGINA 1 — ESTA SEMANA ═══════════════ -->
+<div class="pg on" id="p1">
+
+  <div class="g3">
+    <div class="card card-accent">
+      <div class="ch"><span class="ct">Foco recomendado</span></div>
+      <div class="cb cb-scroll" id="focoBody"></div>
+    </div>
+
+    <div class="card card-accent">
+      <div class="ch"><span class="ct">Próximas agendas</span><span class="badge b-teal" id="evCnt"></span></div>
+      <div class="cb cb-scroll" id="evList"></div>
+      <div class="sbar">Clique numa reunião para ver resumo, tarefas e pendências.</div>
+    </div>
+
+    <div class="card card-accent">
+      <div class="ch"><span class="ct clickable" style="cursor:pointer;text-decoration:underline dotted" onclick="openChecklistModal()" title="Ver pendentes e concluídos">Checklist da semana</span><span class="badge b-green" id="clCnt"></span></div>
+      <div class="cb cb-scroll">
+        <div style="display:flex;gap:6px;margin-bottom:10px">
+          <input id="clInput" type="text" placeholder="Adicionar item..." style="flex:1;padding:7px 10px;font-size:12px;border:0.5px solid var(--border2);border-radius:var(--r-md);background:var(--surface2);color:var(--text);font-family:'Mulish',sans-serif" onkeydown="if(event.key==='Enter')addChecklistItem()">
+          <button onclick="addChecklistItem()" style="padding:0 14px;font-size:12px;font-weight:700;color:var(--text2);background:var(--surface2);border:0.5px solid var(--border2);border-radius:var(--r-pill);cursor:pointer;flex-shrink:0">+ Adicionar</button>
+        </div>
+        <div id="clList"></div>
+      </div>
+      <div class="sbar">Só pendências desta semana. Concluídos e itens de próximas semanas somem daqui — clique no título para ver tudo.</div>
+    </div>
+  </div>
+
+  <div class="g2" style="margin-top:14px">
+    <div class="card">
+      <div class="ch"><span class="ct">Tarefas administrativas / internas</span><span class="badge b-gray" id="adCnt"></span></div>
+      <div class="cb">
+        <div style="display:flex;gap:6px;margin-bottom:10px">
+          <input id="adInput" type="text" placeholder="Adicionar item..." style="flex:1;padding:7px 10px;font-size:12px;border:0.5px solid var(--border2);border-radius:var(--r-md);background:var(--surface2);color:var(--text);font-family:'Mulish',sans-serif" onkeydown="if(event.key==='Enter')addAdmin()">
+          <button onclick="addAdmin()" style="padding:0 14px;font-size:12px;font-weight:700;color:var(--text2);background:var(--surface2);border:0.5px solid var(--border2);border-radius:var(--r-pill);cursor:pointer;flex-shrink:0">+ Adicionar</button>
+        </div>
+        <div id="adList"></div>
+        <div style="font-size:11px;color:var(--text3);margin-top:8px">Lista inicial — atas a enviar, apontamentos e processos internos específicos podem ser detalhados aqui.</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="ch"><span class="ct">Clientes pendentes de follow-up</span><span class="badge b-gray" id="fuCnt"></span></div>
+      <div class="cb cb-scroll" id="fuList"></div>
+      <div class="sbar">Clique num cliente pra registrar contato. Ordenado do mais antigo pro mais recente. 🔴 &gt;45 dias · 🟠 14–45 dias · 🟢 &lt;14 dias.</div>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- ═══════════════ MODAL — DETALHE DA REUNIÃO ═══════════════ -->
+<div class="modal-overlay" id="modalOverlay" onclick="if(event.target===this)closeModal()">
+  <div class="modal-panel">
+    <div class="modal-head">
+      <div>
+        <div style="font-family:'Archivo Black',sans-serif;font-size:16px" id="modalTitle"></div>
+        <div style="font-size:11px;color:var(--text3);font-weight:600;margin-top:2px" id="modalSub"></div>
+      </div>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
+<!-- ═══════════════ MODAL — CHECKLIST DA SEMANA (PENDENTES / CONCLUÍDOS) ═══════════════ -->
+<div class="modal-overlay" id="checklistModalOverlay" onclick="if(event.target===this)closeChecklistModal()">
+  <div class="modal-panel">
+    <div class="modal-head">
+      <div>
+        <div style="font-family:'Archivo Black',sans-serif;font-size:16px">Checklist da semana</div>
+        <div style="font-size:11px;color:var(--text3);font-weight:600;margin-top:2px" id="checklistModalSub"></div>
+      </div>
+      <button class="modal-close" onclick="closeChecklistModal()">✕</button>
+    </div>
+    <div class="modal-body" id="checklistModalBody"></div>
+  </div>
+</div>
+
+<!-- ═══════════════ MODAL — ATUALIZAR CONTATO DE CLIENTE ═══════════════ -->
+<div class="modal-overlay" id="followupModalOverlay" onclick="if(event.target===this)closeFollowupModal(false)">
+  <div class="modal-panel" style="max-width:480px">
+    <div class="modal-head">
+      <div>
+        <div style="font-family:'Archivo Black',sans-serif;font-size:16px" id="followupModalTitle"></div>
+        <div style="font-size:11px;color:var(--text3);font-weight:600;margin-top:2px" id="followupModalSub"></div>
+      </div>
+      <button class="modal-close" onclick="closeFollowupModal(false)">✕</button>
+    </div>
+    <div class="modal-body">
+      <label style="display:block;font-size:11px;font-weight:700;color:var(--text2);margin-bottom:5px">Data do contato</label>
+      <input id="followupData" type="date" style="width:100%;padding:9px 11px;font-size:13px;border:0.5px solid var(--border2);border-radius:var(--r-md);background:var(--surface2);color:var(--text);font-family:'Mulish',sans-serif;box-sizing:border-box;margin-bottom:12px">
+      <label style="display:block;font-size:11px;font-weight:700;color:var(--text2);margin-bottom:5px">O que foi discutido?</label>
+      <textarea id="followupNota" rows="4" placeholder="Ex.: liguei pro cliente, ficou de confirmar até sexta..." style="width:100%;padding:9px 11px;font-size:13px;line-height:1.5;border:0.5px solid var(--border2);border-radius:var(--r-md);background:var(--surface2);color:var(--text);font-family:'Mulish',sans-serif;resize:vertical;box-sizing:border-box;margin-bottom:12px"></textarea>
+      <label style="display:block;font-size:11px;font-weight:700;color:var(--text2);margin-bottom:5px">Próximo contato planejado (deixe em branco para manter)</label>
+      <input id="followupProximo" type="text" placeholder="Ex.: 15/09, reunião com a contabilidade" style="width:100%;padding:9px 11px;font-size:13px;border:0.5px solid var(--border2);border-radius:var(--r-md);background:var(--surface2);color:var(--text);font-family:'Mulish',sans-serif;box-sizing:border-box">
+      <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:14px">
+        <button onclick="closeFollowupModal(false)" style="padding:8px 16px;font-size:12px;font-weight:700;color:var(--text2);background:var(--surface2);border:0.5px solid var(--border2);border-radius:var(--r-pill);cursor:pointer">Cancelar</button>
+        <button onclick="closeFollowupModal(true)" style="padding:8px 18px;font-size:12px;font-weight:700;color:#0F1310;background:var(--gradient);border:none;border-radius:var(--r-pill);cursor:pointer">Salvar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ MODAL — COMENTÁRIO DE CONCLUSÃO ═══════════════ -->
+<div class="modal-overlay" id="commentModalOverlay" onclick="if(event.target===this)closeCommentModal(false)">
+  <div class="modal-panel" style="max-width:480px">
+    <div class="modal-head">
+      <div>
+        <div style="font-family:'Archivo Black',sans-serif;font-size:15px">Concluir item</div>
+        <div style="font-size:11px;color:var(--text3);font-weight:600;margin-top:2px" id="commentModalItemLabel"></div>
+      </div>
+      <button class="modal-close" onclick="closeCommentModal(false)">✕</button>
+    </div>
+    <div class="modal-body">
+      <p style="font-size:12px;color:var(--text2);margin:0 0 10px">O que foi feito ou decidido? Fica salvo aqui para a Nina revisar depois e atualizar a ficha do cliente.</p>
+      <textarea id="commentModalText" rows="4" placeholder="Ex.: liguei pro cliente, ficou de confirmar até sexta..." style="width:100%;padding:9px 11px;font-size:13px;line-height:1.5;border:0.5px solid var(--border2);border-radius:var(--r-md);background:var(--surface2);color:var(--text);font-family:'Mulish',sans-serif;resize:vertical;box-sizing:border-box"></textarea>
+      <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:14px">
+        <button onclick="closeCommentModal(false)" style="padding:8px 16px;font-size:12px;font-weight:700;color:var(--text2);background:var(--surface2);border:0.5px solid var(--border2);border-radius:var(--r-pill);cursor:pointer">Cancelar</button>
+        <button onclick="closeCommentModal(true)" style="padding:8px 18px;font-size:12px;font-weight:700;color:#0F1310;background:var(--gradient);border:none;border-radius:var(--r-pill);cursor:pointer">Concluir</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ MODAL — SINALIZAR REUNIÃO NÃO REALIZADA ═══════════════ -->
+<div class="modal-overlay" id="naoRealizadaModalOverlay" onclick="if(event.target===this)closeNaoRealizadaModal(false)">
+  <div class="modal-panel" style="max-width:480px">
+    <div class="modal-head">
+      <div>
+        <div style="font-family:'Archivo Black',sans-serif;font-size:15px">Sinalizar reunião não realizada</div>
+        <div style="font-size:11px;color:var(--text3);font-weight:600;margin-top:2px" id="naoRealizadaModalItemLabel"></div>
+      </div>
+      <button class="modal-close" onclick="closeNaoRealizadaModal(false)">✕</button>
+    </div>
+    <div class="modal-body">
+      <p style="font-size:12px;color:var(--text2);margin:0 0 10px">O card sai de "Próximas agendas" e o motivo fica registrado para eu revisar e atualizar a ficha do cliente. Use só quando a reunião de fato não ocorreu (mesmo tendo gerado transcrição).</p>
+      <textarea id="naoRealizadaModalText" rows="4" placeholder="Ex.: cliente avisou em cima da hora que não poderia, vamos remarcar..." style="width:100%;padding:9px 11px;font-size:13px;line-height:1.5;border:0.5px solid var(--border2);border-radius:var(--r-md);background:var(--surface2);color:var(--text);font-family:'Mulish',sans-serif;resize:vertical;box-sizing:border-box"></textarea>
+      <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:14px">
+        <button onclick="closeNaoRealizadaModal(false)" style="padding:8px 16px;font-size:12px;font-weight:700;color:var(--text2);background:var(--surface2);border:0.5px solid var(--border2);border-radius:var(--r-pill);cursor:pointer">Cancelar</button>
+        <button onclick="closeNaoRealizadaModal(true)" style="padding:8px 18px;font-size:12px;font-weight:700;color:#fff;background:var(--red);border:none;border-radius:var(--r-pill);cursor:pointer">Confirmar — remover da agenda</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ MODAL — FICHA DO CLIENTE ═══════════════ -->
+<div class="modal-overlay" id="clienteModalOverlay" onclick="if(event.target===this)closeClienteModal()">
+  <div class="modal-panel">
+    <div class="modal-head">
+      <div>
+        <div style="font-family:'Archivo Black',sans-serif;font-size:16px" id="clienteModalTitle"></div>
+        <div style="font-size:11px;color:var(--text3);font-weight:600;margin-top:2px" id="clienteModalSub"></div>
+      </div>
+      <div style="display:flex;gap:8px;align-items:flex-start;flex-shrink:0">
+        <button onclick="gerarPdfCliente()" style="padding:6px 14px;font-size:11px;font-weight:700;color:#0F1310;background:var(--gradient);border:none;border-radius:var(--r-pill);cursor:pointer;white-space:nowrap">Gerar PDF</button>
+        <button class="modal-close" onclick="closeClienteModal()">✕</button>
+      </div>
+    </div>
+    <div class="modal-body" id="clienteModalBody"></div>
+  </div>
+</div>
+
+<div class="print-area" id="printArea"></div>
+
+<!-- ═══════════════ PÁGINA 2 — AGENDA ═══════════════ -->
+<div class="pg" id="p2">
+  <div class="agenda-nav">
+    <button class="agenda-nav-btn" id="btnSemanaAnt" onclick="mudarSemana(-1)">‹ Semana anterior</button>
+    <span class="semana-label" id="semanaLabel"></span>
+    <button class="agenda-nav-btn" id="btnSemanaProx" onclick="mudarSemana(1)" disabled="">Próxima semana ›</button>
+    <button class="agenda-nav-btn hoje" id="btnHoje" onclick="irParaHoje()" style="cursor:pointer" title="Voltar para a semana atual"></button>
+    <button class="agenda-nav-btn" onclick="atualizarAgenda(this)" style="margin-left:auto;cursor:pointer" title="Recalcula a grade, a lista e o resumo de horas a partir dos dados atuais">↻ Atualizar</button>
+  </div>
+  <div class="card card-accent" id="horasResumo" style="margin-bottom:14px"></div>
+  <div class="agenda-layout">
+    <div class="grade-wrap">
+      <div class="grade-header" id="gradeHeader"></div>
+      <div class="grade-body" id="gradeBody"></div>
+    </div>
+    <div class="lista-wrap" id="listaWrap"></div>
+  </div>
+</div>
+
+<!-- ═══════════════ PÁGINA 3 — CATÁLOGO × ATAS (COBERTURA) ═══════════════ -->
+<div class="pg" id="p3">
+  <div class="card card-accent" style="margin-bottom:14px">
+    <div class="ch"><span class="ct">Cobertura da carteira</span></div>
+    <div class="cb">
+      <div class="donut-wrap">
+        <svg width="120" height="120" viewBox="0 0 110 110">
+          <circle cx="55" cy="55" r="42" fill="none" stroke="var(--surface2)" stroke-width="12"></circle>
+          <circle cx="55" cy="55" r="42" fill="none" stroke="url(#grd)" stroke-width="12" stroke-dasharray="0 264" stroke-dashoffset="0" transform="rotate(-90 55 55)"></circle>
+          <defs><linearGradient id="grd" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#3DB54A"></stop><stop offset="100%" stop-color="#00B0A8"></stop></linearGradient></defs>
+          <text x="55" y="50" text-anchor="middle" font-size="20" font-weight="700" font-family="Archivo Black" fill="var(--text)">0%</text>
+          <text x="55" y="66" text-anchor="middle" font-size="10" fill="var(--text3)">0 de 0</text>
+        </svg>
+        <div>
+          <div style="font-size:24px;font-weight:700;font-family:'Archivo Black',sans-serif">0 clientes</div>
+          <div style="font-size:12px;color:var(--text2);margin-top:3px;font-weight:500">mapeados até agora</div>
+          <div style="font-size:11px;color:var(--text3);margin-top:8px;line-height:1.9;font-weight:600"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card card-accent">
+    <div class="ch"><span class="ct">Itens do catálogo por cliente</span></div>
+    <div class="cb" id="cbarBody"></div>
+    <div class="legend">
+      <span><i style="background:var(--green)"></i>Concluído</span>
+      <span><i style="background:var(--teal)"></i>Em andamento</span>
+      <span><i style="background:var(--surface3)"></i>Não se aplica</span>
+    </div>
+    <div class="sbar">
+      <a href="https://claude.ai/code/artifact/ebdc13f4-2e7a-4f1e-93c6-620c0e9a71ce" style="color:var(--teal);text-decoration:none;font-weight:700">Ver relatório completo com evidências →</a>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ PÁGINA 4 — PAINEL EXECUTIVO ═══════════════ -->
+<div class="pg" id="p4">
+  <iframe srcdoc="<!DOCTYPE html><html><head><title>Painel Executivo</title>
+<link rel=&quot;stylesheet&quot; href=&quot;https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&amp;amp;family=Archivo+Black&amp;amp;display=swap&quot;>
+<style>
+  :root {
+    --green:        #3DB54A;
+    --green-700:    #2E9039;
+    --green-50:     #ECF8EE;
+    --teal:         #00B0A8;
+    --teal-700:     #008A83;
+    --teal-50:      #E5F7F6;
+
+    --bg:           #FFFFFF;
+    --bg-wash:      #F7F8F7;
+    --bg-card:      #FFFFFF;
+    --bg-chip:      #EFF1EF;
+
+    --ink:          #1A1F1B;
+    --graphite:     #3A3F3B;
+    --stone:        #7B807C;
+    --line:         #E3E5E3;
+    --line-strong:  #C9CCC9;
+
+    --danger:       #C8402F;
+    --danger-bg:    #FBEDEA;
+    --danger-line:  rgba(200,64,47,0.28);
+    --warning:      #B87A15;
+    --warning-bg:   #FBF2E2;
+    --warning-line: rgba(184,122,21,0.28);
+    --info:         #00817A;
+    --info-bg:      #E5F7F6;
+    --info-line:    rgba(0,129,122,0.28);
+
+    --shadow-1: 0 1px 2px rgba(20,30,22,0.05), 0 1px 1px rgba(20,30,22,0.04);
+    --shadow-2: 0 8px 24px rgba(20,30,22,0.07), 0 2px 6px rgba(20,30,22,0.05);
+
+    --font-display: &quot;Archivo Black&quot;, &quot;Impact&quot;, sans-serif;
+    --font-body:    &quot;Mulish&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme=&quot;light&quot;]) {
+      --bg:           #141815;
+      --bg-wash:      #181D19;
+      --bg-card:      #1D2320;
+      --bg-chip:      #242B26;
+
+      --ink:          #F1F3F0;
+      --graphite:     #C7CDC8;
+      --stone:        #8B928C;
+      --line:         #2C332E;
+      --line-strong:  #3A4239;
+
+      --danger:       #F2897A;
+      --danger-bg:    rgba(200,64,47,0.16);
+      --danger-line:  rgba(242,137,122,0.35);
+      --warning:      #E8BA6D;
+      --warning-bg:   rgba(184,122,21,0.16);
+      --warning-line: rgba(232,186,109,0.35);
+      --info:         #5FD4CC;
+      --info-bg:      rgba(0,129,122,0.16);
+      --info-line:    rgba(95,212,204,0.35);
+
+      --green-50:     rgba(61,181,74,0.14);
+      --teal-50:      rgba(0,176,168,0.14);
+
+      --shadow-1: 0 1px 2px rgba(0,0,0,0.3);
+      --shadow-2: 0 12px 28px rgba(0,0,0,0.4);
+    }
+  }
+
+  :root[data-theme=&quot;dark&quot;] {
+    --bg:           #141815;
+    --bg-wash:      #181D19;
+    --bg-card:      #1D2320;
+    --bg-chip:      #242B26;
+
+    --ink:          #F1F3F0;
+    --graphite:     #C7CDC8;
+    --stone:        #8B928C;
+    --line:         #2C332E;
+    --line-strong:  #3A4239;
+
+    --danger:       #F2897A;
+    --danger-bg:    rgba(200,64,47,0.16);
+    --danger-line:  rgba(242,137,122,0.35);
+    --warning:      #E8BA6D;
+    --warning-bg:   rgba(184,122,21,0.16);
+    --warning-line: rgba(232,186,109,0.35);
+    --info:         #5FD4CC;
+    --info-bg:      rgba(0,129,122,0.16);
+    --info-line:    rgba(95,212,204,0.35);
+
+    --green-50:     rgba(61,181,74,0.14);
+    --teal-50:      rgba(0,176,168,0.14);
+
+    --shadow-1: 0 1px 2px rgba(0,0,0,0.3);
+    --shadow-2: 0 12px 28px rgba(0,0,0,0.4);
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--graphite);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    min-height: 100vh;
+    padding: 40px 24px 80px;
+  }
+
+  .page {
+    max-width: 980px;
+    margin: 0 auto;
+  }
+
+  /* ---------- Header ---------- */
+
+  .masthead {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+    padding-bottom: 24px;
+    margin-bottom: 28px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .masthead__logo {
+    height: 22px;
+    width: auto;
+    display: block;
+    margin-bottom: 14px;
+  }
+
+  .eyebrow {
+    font-weight: 800;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--stone);
+  }
+
+  h1 {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: clamp(28px, 4vw, 38px);
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin: 6px 0 0;
+    text-wrap: balance;
+  }
+
+  .masthead__meta {
+    text-align: right;
+    font-size: 13px;
+    color: var(--stone);
+    line-height: 1.5;
+  }
+
+  .masthead__meta strong {
+    display: block;
+    color: var(--ink);
+    font-weight: 700;
+    font-size: 14px;
+  }
+
+  /* ---------- KPI strip ---------- */
+
+  .kpis {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 36px;
+  }
+
+  .kpi {
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 16px 18px;
+    box-shadow: var(--shadow-1);
+  }
+
+  .kpi__value {
+    font-family: var(--font-display);
+    font-size: 30px;
+    line-height: 1;
+    color: var(--ink);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .kpi__value.is-danger { color: var(--danger); }
+  .kpi__value.is-warning { color: var(--warning); }
+
+  .kpi__label {
+    margin-top: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--stone);
+    letter-spacing: 0.02em;
+  }
+
+  /* ---------- Section headers ---------- */
+
+  section { margin-bottom: 40px; }
+
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: 19px;
+    letter-spacing: -0.005em;
+    color: var(--ink);
+    margin: 0;
+  }
+
+  .section-sub {
+    font-size: 13px;
+    color: var(--stone);
+    margin: 0;
+  }
+
+  /* ---------- Risk list ---------- */
+
+  .risk-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .risk {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 6px 16px;
+    align-items: start;
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--sev);
+    border-radius: 0 10px 10px 0;
+    padding: 14px 18px;
+    box-shadow: var(--shadow-1);
+  }
+
+  .risk.sev-critical { --sev: var(--danger); }
+  .risk.sev-attention { --sev: var(--warning); }
+  .risk.sev-watch { --sev: var(--info); }
+
+  .risk__name {
+    font-weight: 800;
+    font-size: 14.5px;
+    color: var(--ink);
+  }
+
+  .risk__desc {
+    grid-column: 1 / -1;
+    font-size: 13.5px;
+    color: var(--graphite);
+    line-height: 1.55;
+    max-width: 68ch;
+  }
+
+  .chip {
+    align-self: start;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 10.5px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 4px 9px;
+    border-radius: 999px;
+    white-space: nowrap;
+    border: 1px solid transparent;
+  }
+
+  .chip.sev-critical { color: var(--danger); background: var(--danger-bg); border-color: var(--danger-line); }
+  .chip.sev-attention { color: var(--warning); background: var(--warning-bg); border-color: var(--warning-line); }
+  .chip.sev-watch { color: var(--info); background: var(--info-bg); border-color: var(--info-line); }
+
+  /* ---------- Follow-up strip ---------- */
+
+  .followups {
+    background: var(--bg-wash);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 16px 20px;
+    font-size: 13.5px;
+    color: var(--graphite);
+    line-height: 1.7;
+  }
+
+  .followups strong { color: var(--ink); }
+
+  /* ---------- Two column footer ---------- */
+
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 24px;
+  }
+
+  .panel {
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 20px 22px;
+    box-shadow: var(--shadow-1);
+  }
+
+  .actions {
+    counter-reset: step;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .actions li {
+    counter-increment: step;
+    display: grid;
+    grid-template-columns: 24px 1fr;
+    gap: 10px;
+    font-size: 13.5px;
+    line-height: 1.5;
+  }
+
+  .actions li::before {
+    content: counter(step);
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--green) 0%, var(--teal) 100%);
+    color: #fff;
+    font-family: var(--font-body);
+    font-weight: 800;
+    font-size: 11.5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .actions li strong { color: var(--ink); }
+
+  .agenda-day {
+    margin-bottom: 14px;
+  }
+  .agenda-day:last-child { margin-bottom: 0; }
+
+  .agenda-day__label {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--stone);
+    margin-bottom: 8px;
+  }
+
+  .agenda-item {
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    gap: 12px;
+    padding: 7px 0;
+    border-top: 1px solid var(--line);
+    font-size: 13.5px;
+  }
+  .agenda-day__label + .agenda-item { border-top: none; }
+
+  .agenda-item time {
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    color: var(--teal-700, var(--info));
+    font-size: 12.5px;
+  }
+
+  .agenda-item .agenda-item__title {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  .agenda-item .agenda-item__note {
+    display: block;
+    color: var(--stone);
+    font-size: 12px;
+    margin-top: 2px;
+    font-weight: 400;
+  }
+
+  .focus-callout {
+    grid-column: 1 / -1;
+    background: linear-gradient(90deg, var(--green-50) 0%, var(--teal-50) 100%);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin-top: 24px;
+  }
+
+  .focus-callout .eyebrow { margin-bottom: 6px; }
+
+  .focus-callout p {
+    margin: 0;
+    font-size: 14.5px;
+    line-height: 1.6;
+    color: var(--ink);
+    max-width: 74ch;
+  }
+
+  footer {
+    margin-top: 44px;
+    padding-top: 18px;
+    border-top: 1px solid var(--line);
+    font-size: 11.5px;
+    color: var(--stone);
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  @media (max-width: 720px) {
+    .kpis { grid-template-columns: repeat(2, 1fr); }
+    .grid-2 { grid-template-columns: 1fr; }
+    .risk { grid-template-columns: 1fr; }
+    .chip { justify-self: start; }
+    .masthead { flex-direction: column; align-items: flex-start; }
+    .masthead__meta { text-align: left; }
+  }
+</style>
+
+</head><body><div class=&quot;page&quot;>
+
+  <header class=&quot;masthead&quot;>
+    <div>
+      <div class=&quot;eyebrow&quot;>CONAG Agro Soluções</div>
+      <h1>Painel Executivo</h1>
+    </div>
+    <div class=&quot;masthead__meta&quot;><strong>[Nome do consultor]</strong>
+      Atualizado em [DD/MM/AAAA] · [dia da semana]. [Resumo da agenda do dia]</div>
+  </header>
+
+  <div class=&quot;kpis&quot;>
+    <div class=&quot;kpi&quot;>
+      <div class=&quot;kpi__value&quot;>—</div>
+      <div class=&quot;kpi__label&quot;>Projetos acompanhados</div>
+    </div>
+    <div class=&quot;kpi&quot;>
+      <div class=&quot;kpi__value is-danger&quot;>—</div>
+      <div class=&quot;kpi__label&quot;>Clientes em risco</div>
+    </div>
+    <div class=&quot;kpi&quot;>
+      <div class=&quot;kpi__value is-warning&quot;>—</div>
+      <div class=&quot;kpi__label&quot;>Reuniões a confirmar</div>
+    </div>
+    <div class=&quot;kpi&quot;>
+      <div class=&quot;kpi__value&quot;>—</div>
+      <div class=&quot;kpi__label&quot;>Reuniões com data fechada</div>
+    </div>
+  </div>
+
+  <section>
+    <div class=&quot;section-head&quot;>
+      <h2>Clientes em risco</h2>
+      <p class=&quot;section-sub&quot;>Ordenado por gravidade</p>
+    </div>
+    <div class=&quot;risk-list&quot;>
+
+      <div class=&quot;risk sev-critical&quot;>
+        <div class=&quot;risk__name&quot;>[Cliente]</div>
+        <span class=&quot;chip sev-critical&quot;>Crítico</span>
+        <div class=&quot;risk__desc&quot;>[Descrição do risco — preenchida pela assistente a partir das fichas]</div>
+      </div>
+
+      
+
+      <div class=&quot;risk sev-attention&quot;>
+        <div class=&quot;risk__name&quot;>[Cliente]</div>
+        <span class=&quot;chip sev-attention&quot;>Atenção</span>
+        <div class=&quot;risk__desc&quot;>[Descrição do risco — preenchida pela assistente a partir das fichas]</div>
+      </div>
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+    </div>
+  </section>
+
+  <section class=&quot;grid-2&quot;>
+    <div class=&quot;panel&quot;>
+      <h2 style=&quot;margin-bottom: 14px;&quot;>Top 5 ações</h2>
+      <ol class=&quot;actions&quot;>
+        <li><span><strong>[Prioridade — Cliente]</strong>: [ação recomendada]</span></li>
+        
+        
+        
+        
+      </ol>
+    </div>
+
+    <div class=&quot;panel&quot;>
+      <h2 style=&quot;margin-bottom: 14px;&quot;>Agenda — semana de [DD/MM–DD/MM]</h2>
+      <div class=&quot;agenda-day&quot;>
+        <div class=&quot;agenda-day__label&quot;>[Dia (DD/MM)]</div>
+        <div class=&quot;agenda-item&quot;><time>[hora]</time><div><span class=&quot;agenda-item__title&quot;>[Cliente]</span><span class=&quot;agenda-item__note&quot;>[Tipo de reunião]</span></div></div>
+      </div>
+      
+      
+      
+      
+    </div>
+
+    <div class=&quot;focus-callout&quot;>
+      <div class=&quot;eyebrow&quot;>Foco recomendado</div>
+      <p>[Foco recomendado — preenchido pela assistente]</p>
+    </div>
+  </section>
+
+  <footer>
+    <span>Gerado a partir das fichas de projeto — CONAG Agro Soluções</span>
+    <span>[DD/MM/AAAA]</span>
+  </footer>
+
+</div>
+
+</body></html>" title="Painel Executivo" style="width:100%;height:calc(100vh - 150px);min-height:640px;border:none;border-radius:var(--r-lg);background:#fff;display:block"></iframe>
+</div>
+
+<!-- ═══════════════ PÁGINA 5 — CLIENTES ═══════════════ -->
+<div class="pg" id="p5">
+  <div class="ftabs">
+    <button class="ftab on" data-filtro="mine" onclick="setClienteFiltro('mine',this)">Meus <span id="cntMine"></span></button>
+    <button class="ftab" data-filtro="other" onclick="setClienteFiltro('other',this)">Outro consultor <span id="cntOther"></span></button>
+    <button class="ftab" data-filtro="finished" onclick="setClienteFiltro('finished',this)">Finalizados <span id="cntFinished"></span></button>
+    <button class="ftab" data-filtro="all" onclick="setClienteFiltro('all',this)">Todos <span id="cntAll"></span></button>
+    <input class="fsrch" id="clienteSearch" placeholder="Buscar cliente ou consultor..." oninput="renderClientes()" style="margin-left:auto">
+  </div>
+  <div id="clientesList"></div>
+</div>
+
+<footer class="pfoot">Planner CONAG — gerado a partir das fichas, atas e do cruzamento catálogo × atas</footer>
+
+<script type="application/json" id="app-state">{
+  "focoRecomendado": "",
+  "proximasReunioes": [],
+  "checklistSemana": [],
+  "adminTasks": [],
+  "followups": [],
+  "catalogTasks": [],
+  "reunioesNaoRealizadas": [],
+  "clientes": [],
+  "correlacoesAjustes": {}
+}</script>
+<script type="application/json" id="catalogo-ref">[{"c":"M01-E02.T01","t":"Modelagem do organograma de acesso","e":"Acessos & Governança","m":"Configurações do Sistema"},{"c":"M01-E02.T01.S01","t":"Definir Admin / Key User da fazenda","e":"Acessos & Governança","m":"Configurações do Sistema"},{"c":"M01-E02.T03","t":"Notificações por perfil","e":"Acessos & Governança","m":"Configurações do Sistema"},{"c":"M01-E01.S01","t":"Tour da interface principal (menu lateral, topbar, breadcrumb)","e":"Onboarding & Usabilidade do Sistema","m":"Configurações do Sistema"},{"c":"M01-E01.S02","t":"Configurar Meu Perfil (foto, nome, contato, fuso)","e":"Onboarding & Usabilidade do Sistema","m":"Configurações do Sistema"},{"c":"M01-E01.S05","t":"Exportação de dados (PDF / Excel) — quando usar cada um","e":"Onboarding & Usabilidade do Sistema","m":"Configurações do Sistema"},{"c":"M01-E01.S06","t":"Marcar favoritos / pinar tela inicial","e":"Onboarding & Usabilidade do Sistema","m":"Configurações do Sistema"},{"c":"M02-E01.T01","t":"Estrutura organizacional","e":"Modelo Gerencial CONAG","m":"Cadastros Básicos"},{"c":"M02-E01.T01.S01","t":"Unidades de Negócio","e":"Modelo Gerencial CONAG","m":"Cadastros Básicos"},{"c":"M02-E01.T01.S02","t":"Atividades de Negócio","e":"Modelo Gerencial CONAG","m":"Cadastros Básicos"},{"c":"M02-E01.T01.S03","t":"Fazendas (Cadastro Simplificado)","e":"Modelo Gerencial CONAG","m":"Cadastros Básicos"},{"c":"M02-E01.T01.S04","t":"Vínculo fazendas × atividades × Unidade de Negócio","e":"Modelo Gerencial CONAG","m":"Cadastros Básicos"},{"c":"M02-E01.T02","t":"Modelo de rateios das unidades de negócio","e":"Modelo Gerencial CONAG","m":"Cadastros Básicos"},{"c":"M02-E04.T01","t":"Ano Safra (conceito de competência)","e":"Operação Anual e Indicadores","m":"Cadastros Básicos"},{"c":"M02-E04.T02","t":"Cotações monitoradas (soja, milho, boi)","e":"Operação Anual e Indicadores","m":"Cadastros Básicos"},{"c":"M02-E04.T03","t":"Variáveis de controle gerencial","e":"Operação Anual e Indicadores","m":"Cadastros Básicos"},{"c":"M02-E02.T01","t":"Cadastrar empresas e produtores","e":"Empresas, Produtores e Certificado Digital","m":"Cadastros Básicos"},{"c":"M02-E02.T02","t":"Instalar certificado digital A1 no sistema","e":"Empresas, Produtores e Certificado Digital","m":"Cadastros Básicos"},{"c":"M02-E02.T03","t":"Capacitação: renovação anual do certificado A1","e":"Empresas, Produtores e Certificado Digital","m":"Cadastros Básicos"},{"c":"M02-E03.T01","t":"Fornecedores","e":"Cadastro de Entidades — Fornecedores, Clientes e Funcionários","m":"Cadastros Básicos"},{"c":"M02-E03.T01.S01","t":"Atalho via Recepção de NF-e","e":"Cadastro de Entidades — Fornecedores, Clientes e Funcionários","m":"Cadastros Básicos"},{"c":"M02-E03.T01.S02","t":"Cadastro manual de fornecedores","e":"Cadastro de Entidades — Fornecedores, Clientes e Funcionários","m":"Cadastros Básicos"},{"c":"M02-E03.T02","t":"Clientes","e":"Cadastro de Entidades — Fornecedores, Clientes e Funcionários","m":"Cadastros Básicos"},{"c":"M02-E03.T03","t":"Funcionários","e":"Cadastro de Entidades — Fornecedores, Clientes e Funcionários","m":"Cadastros Básicos"},{"c":"M03-E01.T01","t":"Validar e ajustar Plano de Contas CONAG ao negócio do cliente","e":"Configuração Financeira — Plano de Contas e Carteiras","m":"Gestão Financeira"},{"c":"M03-E01.T01.S02","t":"Excluir/desativar contas não aplicáveis ao negócio","e":"Configuração Financeira — Plano de Contas e Carteiras","m":"Gestão Financeira"},{"c":"M03-E01.T01.S03","t":"Criar novas analíticas conforme realidade gerencial","e":"Configuração Financeira — Plano de Contas e Carteiras","m":"Gestão Financeira"},{"c":"M03-E01.T01.S04","t":"Ajustar nomenclatura à linguagem operacional do cliente","e":"Configuração Financeira — Plano de Contas e Carteiras","m":"Gestão Financeira"},{"c":"M03-E01.T02","t":"Cadastrar Centros de Custo conforme estrutura gerencial","e":"Configuração Financeira — Plano de Contas e Carteiras","m":"Gestão Financeira"},{"c":"M03-E01.T03","t":"Cadastrar Contas Bancárias e Caixas (incluindo Compensatório)","e":"Configuração Financeira — Plano de Contas e Carteiras","m":"Gestão Financeira"},{"c":"M03-E01.T04","t":"Cadastrar Aplicações Financeiras","e":"Configuração Financeira — Plano de Contas e Carteiras","m":"Gestão Financeira"},{"c":"M03-E01.T04.S01","t":"Aplicações com liquidez diária (Imobiliza NÃO — equivalente de caixa)","e":"Configuração Financeira — Plano de Contas e Carteiras","m":"Gestão Financeira"},{"c":"M03-E01.T04.S02","t":"Aplicações longas e fundos imobilizados (Imobiliza SIM)","e":"Configuração Financeira — Plano de Contas e Carteiras","m":"Gestão Financeira"},{"c":"M03-E01.T04.S03","t":"Consórcios","e":"Configuração Financeira — Plano de Contas e Carteiras","m":"Gestão Financeira"},{"c":"M03-E01.T06","t":"Definir Alçadas de Aprovação por usuário/faixa","e":"Configuração Financeira — Plano de Contas e Carteiras","m":"Gestão Financeira"},{"c":"M03-E02.T01","t":"Lançar título pontual (NF avulsa)","e":"Contas a Pagar — Lançamento, Aprovação e Pagamento","m":"Gestão Financeira"},{"c":"M03-E02.T02","t":"Lançar título parcelado (validar IDPrincipal/IDParcela)","e":"Contas a Pagar — Lançamento, Aprovação e Pagamento","m":"Gestão Financeira"},{"c":"M03-E02.T03","t":"Configurar título recorrente COM data-fim","e":"Contas a Pagar — Lançamento, Aprovação e Pagamento","m":"Gestão Financeira"},{"c":"M03-E02.T05","t":"Baixar pagamento manual","e":"Contas a Pagar — Lançamento, Aprovação e Pagamento","m":"Gestão Financeira"},{"c":"M03-E02.T06","t":"Estornar pagamento (governança de erro)","e":"Contas a Pagar — Lançamento, Aprovação e Pagamento","m":"Gestão Financeira"},{"c":"M03-E02.T07","t":"Tratar adiantamento a fornecedor (ativo, não despesa)","e":"Contas a Pagar — Lançamento, Aprovação e Pagamento","m":"Gestão Financeira"},{"c":"M03-E05.T01","t":"Homologar layout CNAB com banco","e":"Remessa Bancária CNAB — Boletos e Pagamentos","m":"Gestão Financeira"},{"c":"M03-E05.T02","t":"Configurar Carteira (convênio/agência)","e":"Remessa Bancária CNAB — Boletos e Pagamentos","m":"Gestão Financeira"},{"c":"M03-E05.T03","t":"Gerar e enviar remessa de boletos (teste com 2 títulos)","e":"Remessa Bancária CNAB — Boletos e Pagamentos","m":"Gestão Financeira"},{"c":"M03-E05.T04","t":"Importar retorno e baixar CARs liquidados","e":"Remessa Bancária CNAB — Boletos e Pagamentos","m":"Gestão Financeira"},{"c":"M03-E05.T06","t":"Tratar rejeições do retorno","e":"Remessa Bancária CNAB — Boletos e Pagamentos","m":"Gestão Financeira"},{"c":"M03-E03.T01","t":"Lançar CAR de venda de grão (com Funrural)","e":"Contas a Receber — Faturamento, DDA e Adiantamentos","m":"Gestão Financeira"},{"c":"M03-E03.T02","t":"Lançar CAR de receita não-operacional (arrendamento)","e":"Contas a Receber — Faturamento, DDA e Adiantamentos","m":"Gestão Financeira"},{"c":"M03-E03.T04","t":"Configurar e importar DDA","e":"Contas a Receber — Faturamento, DDA e Adiantamentos","m":"Gestão Financeira"},{"c":"M03-E03.T04.S01","t":"Vincular conta bancária ao DDA","e":"Contas a Receber — Faturamento, DDA e Adiantamentos","m":"Gestão Financeira"},{"c":"M03-E03.T04.S02","t":"Importar arquivo DDA do banco","e":"Contas a Receber — Faturamento, DDA e Adiantamentos","m":"Gestão Financeira"},{"c":"M03-E03.T05","t":"Baixar recebimento parcial","e":"Contas a Receber — Faturamento, DDA e Adiantamentos","m":"Gestão Financeira"},{"c":"M03-E04.T01","t":"Lançar transferência entre contas próprias","e":"Movimentação e Conciliação Bancária","m":"Gestão Financeira"},{"c":"M03-E04.T02","t":"Importar extrato bancário (OFX/CSV)","e":"Movimentação e Conciliação Bancária","m":"Gestão Financeira"},{"c":"M03-E04.T03","t":"Rodar auto-conciliação e revisar sugestões","e":"Movimentação e Conciliação Bancária","m":"Gestão Financeira"},{"c":"M03-E04.T05","t":"Usar Caixa Compensatório (com zeragem 30d)","e":"Movimentação e Conciliação Bancária","m":"Gestão Financeira"},{"c":"M03-E04.T06","t":"Fechar conciliação do mês","e":"Movimentação e Conciliação Bancária","m":"Gestão Financeira"},{"c":"M03-E06.T01","t":"Cadastrar cheque recebido (emitente/banco/bom-pra)","e":"Gestão de Cheques de Terceiros","m":"Gestão Financeira"},{"c":"M03-E06.T02","t":"Vincular cheque ao CAR sem marcar caixa","e":"Gestão de Cheques de Terceiros","m":"Gestão Financeira"},{"c":"M03-E06.T03","t":"Controlar custódia (cofre/banco/cartório)","e":"Gestão de Cheques de Terceiros","m":"Gestão Financeira"},{"c":"M03-E06.T04","t":"Baixar cheque na compensação","e":"Gestão de Cheques de Terceiros","m":"Gestão Financeira"},{"c":"M03-E06.T05","t":"Tratar cheque devolvido (volta pra CAR + cobrança)","e":"Gestão de Cheques de Terceiros","m":"Gestão Financeira"},{"c":"M03-E07.T01","t":"Rodar DRE Rural (regime competência)","e":"Relatórios Financeiros Gerenciais e Fluxo de Caixa","m":"Gestão Financeira"},{"c":"M03-E07.T02","t":"Rodar Fluxo de Caixa Realizado","e":"Relatórios Financeiros Gerenciais e Fluxo de Caixa","m":"Gestão Financeira"},{"c":"M03-E07.T03","t":"Rodar Fluxo de Caixa Projetado","e":"Relatórios Financeiros Gerenciais e Fluxo de Caixa","m":"Gestão Financeira"},{"c":"M03-E08.T01","t":"Levantar contratos vigentes e classificar por modalidade","e":"Gestão de Financiamentos e Crédito Rural","m":"Gestão de Financiamentos"},{"c":"M03-E08.T05","t":"Cadastrar contratos no ERP","e":"Gestão de Financiamentos e Crédito Rural","m":"Gestão de Financiamentos"},{"c":"M03-E08.T07","t":"Atualizar juros e indexadores de todos os contratos","e":"Gestão de Financiamentos e Crédito Rural","m":"Gestão de Financiamentos"},{"c":"M03-E08.T08","t":"Cadastrar garantias vinculadas a cada contrato (CPR, alienação, hipoteca)","e":"Gestão de Financiamentos e Crédito Rural","m":"Gestão de Financiamentos"},{"c":"M03-E08.T09","t":"Validar posições com sócios e gestores","e":"Gestão de Financiamentos e Crédito Rural","m":"Gestão de Financiamentos"},{"c":"M03-E08.T10","t":"Validar relatório de Projeção de Dívida","e":"Gestão de Financiamentos e Crédito Rural","m":"Gestão de Financiamentos"},{"c":"M03-E09.T01","t":"Apresentar conceito de planejamento financeiro à equipe","e":"Planejamento Financeiro e Orçamento Anual","m":"Planejamento e Orçamento"},{"c":"M03-E09.T07","t":"Atualizar parcelas de financiamento no planejamento","e":"Planejamento Financeiro e Orçamento Anual","m":"Planejamento e Orçamento"},{"c":"M03-E09.T08","t":"Validar impactos do planejamento nos relatórios gerenciais","e":"Planejamento Financeiro e Orçamento Anual","m":"Planejamento e Orçamento"},{"c":"M03-E09.T08.S01","t":"Validar impacto no Balancete projetado","e":"Planejamento Financeiro e Orçamento Anual","m":"Planejamento e Orçamento"},{"c":"M03-E09.T08.S02","t":"Validar impacto no Resultado Financeiro projetado","e":"Planejamento Financeiro e Orçamento Anual","m":"Planejamento e Orçamento"},{"c":"M03-E09.T08.S03","t":"Validar impacto no Fluxo de Caixa Mensal projetado","e":"Planejamento Financeiro e Orçamento Anual","m":"Planejamento e Orçamento"},{"c":"M03-E09.T08.S04","t":"Validar impacto nos Indicadores Gerenciais","e":"Planejamento Financeiro e Orçamento Anual","m":"Planejamento e Orçamento"},{"c":"M04-E01.T01","t":"Configurar certificado digital A1 e recepção automática","e":"Recepção Fiscal de Entrada e Auto-preenchimento de CAP","m":"Gestão Fiscal"},{"c":"M04-E01.T01.S02","t":"Validar conexão com SEFAZ origem","e":"Recepção Fiscal de Entrada e Auto-preenchimento de CAP","m":"Gestão Fiscal"},{"c":"M04-E01.T01.S03","t":"Testar recepção com primeira NFe de fornecedor cadastrado","e":"Recepção Fiscal de Entrada e Auto-preenchimento de CAP","m":"Gestão Fiscal"},{"c":"M04-E01.T01.S04","t":"Validar chegada de NFS-e municipal e CT-e (frete)","e":"Recepção Fiscal de Entrada e Auto-preenchimento de CAP","m":"Gestão Fiscal"},{"c":"M04-E01.T02","t":"Validar auto-preenchimento de CAP com 30 notas reais de mês histórico","e":"Recepção Fiscal de Entrada e Auto-preenchimento de CAP","m":"Gestão Fiscal"},{"c":"M04-E02.T03","t":"Cadastrar produtos e configurações fiscais","e":"Emissão Fiscal de Saída (NFe Produtor + NFS-e quando aplicável)","m":"Gestão Fiscal"},{"c":"M04-E02.T04","t":"Cadastrar impostos aplicáveis (ICMS, PIS/COFINS, alíquotas reduzidas)","e":"Emissão Fiscal de Saída (NFe Produtor + NFS-e quando aplicável)","m":"Gestão Fiscal"},{"c":"M04-E02.T05","t":"Validar parâmetros fiscais com a contabilidade do cliente","e":"Emissão Fiscal de Saída (NFe Produtor + NFS-e quando aplicável)","m":"Gestão Fiscal"},{"c":"M04-E02.T07","t":"Emissão de primeira nota fiscal em produção (com conferência ativa de erros)","e":"Emissão Fiscal de Saída (NFe Produtor + NFS-e quando aplicável)","m":"Gestão Fiscal"},{"c":"M04-E02.T09","t":"Vínculo de nota fiscal a Contas a Receber (CAR) e principais funcionalidades do emissor","e":"Emissão Fiscal de Saída (NFe Produtor + NFS-e quando aplicável)","m":"Gestão Fiscal"},{"c":"M04-E03.T01","t":"Levantar Tipo de Exploração com contador","e":"Estrutura Societária Rural e Parametrização do LCDPR","m":"Gestão Fiscal"},{"c":"M04-E03.T01.S01","t":"Revisar contratos de arrendamento e parceria","e":"Estrutura Societária Rural e Parametrização do LCDPR","m":"Gestão Fiscal"},{"c":"M04-E03.T01.S02","t":"Verificar espólios em aberto","e":"Estrutura Societária Rural e Parametrização do LCDPR","m":"Gestão Fiscal"},{"c":"M04-E03.T01.S03","t":"Mapear CPFs/CNPJs e CAEPFs envolvidos","e":"Estrutura Societária Rural e Parametrização do LCDPR","m":"Gestão Fiscal"},{"c":"M04-E03.T02","t":"Parametrizar plano de contas LCDPR (leiaute Receita vigente)","e":"Estrutura Societária Rural e Parametrização do LCDPR","m":"Gestão Fiscal"},{"c":"M04-E03.T03","t":"Configurar contas bancárias no LCDPR (registro Q200)","e":"Estrutura Societária Rural e Parametrização do LCDPR","m":"Gestão Fiscal"},{"c":"M04-E03.T04","t":"Vincular imóveis rurais (NIRF/CCIR)","e":"Estrutura Societária Rural e Parametrização do LCDPR","m":"Gestão Fiscal"},{"c":"M04-E03.T05","t":"Validar parametrização com simulação de fechamento de mês histórico","e":"Estrutura Societária Rural e Parametrização do LCDPR","m":"Gestão Fiscal"},{"c":"M05-E01.T01","t":"Cadastrar Empresas (CNPJ, CNAE, FAP, RAT, Tipo de Inscrição CAEPF/CEI)","e":"Configuração Base e Cadastro de Funcionários","m":"Gestão Trabalhista"},{"c":"M05-E01.T02","t":"Cadastrar Departamentos e Centros de Custo","e":"Configuração Base e Cadastro de Funcionários","m":"Gestão Trabalhista"},{"c":"M05-E01.T03","t":"Cadastrar Cargos e Tabela Salarial","e":"Configuração Base e Cadastro de Funcionários","m":"Gestão Trabalhista"},{"c":"M05-E01.T04","t":"Cadastrar Sindicatos e Convenções Coletivas (piso, dissídio, benefícios)","e":"Configuração Base e Cadastro de Funcionários","m":"Gestão Trabalhista"},{"c":"M05-E01.T05","t":"Configurar Calendário e Jornada de Trabalho (escala, feriados, banco de horas)","e":"Configuração Base e Cadastro de Funcionários","m":"Gestão Trabalhista"},{"c":"M05-E01.T06","t":"Importar/Cadastrar Funcionários ativos (PIS, NIS, dependentes, dados bancários)","e":"Configuração Base e Cadastro de Funcionários","m":"Gestão Trabalhista"},{"c":"M05-E01.T07","t":"Cadastrar Admissões e Afastamentos vigentes (auxílio doença, licença maternidade)","e":"Configuração Base e Cadastro de Funcionários","m":"Gestão Trabalhista"},{"c":"M05-E01.T08","t":"Cadastrar Históricos (saldos de férias, banco de horas, 13º proporcional)","e":"Configuração Base e Cadastro de Funcionários","m":"Gestão Trabalhista"},{"c":"M05-E02.T01","t":"Configurar Eventos de Proventos (salário, HE 50%, HE 100%, adic noturno, periculosidade, insalubridade)","e":"Parametrização de Eventos e Regras de Cálculo","m":"Gestão Trabalhista"},{"c":"M05-E02.T02","t":"Configurar Eventos de Descontos (INSS, IRRF, VT, plano saúde, contribuição sindical)","e":"Parametrização de Eventos e Regras de Cálculo","m":"Gestão Trabalhista"},{"c":"M05-E02.T03","t":"Configurar Regras de Férias (1/3 constitucional, abono pecuniário, programação)","e":"Parametrização de Eventos e Regras de Cálculo","m":"Gestão Trabalhista"},{"c":"M05-E02.T04","t":"Configurar Regras de 13º Salário (1ª parcela, 2ª parcela, antecipação)","e":"Parametrização de Eventos e Regras de Cálculo","m":"Gestão Trabalhista"},{"c":"M05-E02.T05","t":"Configurar Verbas Rescisórias por motivo (sem justa causa, com justa causa, pedido demissão, acordo CLT)","e":"Parametrização de Eventos e Regras de Cálculo","m":"Gestão Trabalhista"},{"c":"M05-E02.T06","t":"Configurar Banco de Horas e regras de Compensação","e":"Parametrização de Eventos e Regras de Cálculo","m":"Gestão Trabalhista"},{"c":"M05-E03.T01","t":"Treinar Lançamentos Mensais (admissões, alterações, faltas, horas extras, comissões)","e":"Operação Mensal — Lançamentos, Cálculo e Fechamento","m":"Gestão Trabalhista"},{"c":"M05-E03.T02","t":"Operar Cálculo Preview da Folha (conferência antes de fechar)","e":"Operação Mensal — Lançamentos, Cálculo e Fechamento","m":"Gestão Trabalhista"},{"c":"M05-E03.T03","t":"Conferir Holerites (proventos × descontos × líquido por funcionário)","e":"Operação Mensal — Lançamentos, Cálculo e Fechamento","m":"Gestão Trabalhista"},{"c":"M05-E03.T04","t":"Comparar com Folha Anterior (variação de líquido — investigar outliers)","e":"Operação Mensal — Lançamentos, Cálculo e Fechamento","m":"Gestão Trabalhista"},{"c":"M05-E03.T05","t":"Fechar Folha Mensal (competência D+5, congela cálculo)","e":"Operação Mensal — Lançamentos, Cálculo e Fechamento","m":"Gestão Trabalhista"},{"c":"M05-E03.T06","t":"Gerar Holerites para Funcionários (PDF + envio por e-mail)","e":"Operação Mensal — Lançamentos, Cálculo e Fechamento","m":"Gestão Trabalhista"},{"c":"M05-E03.T07","t":"Gerar Relatórios de Conferência (resumo, contábil, banco para pagamento)","e":"Operação Mensal — Lançamentos, Cálculo e Fechamento","m":"Gestão Trabalhista"},{"c":"M05-E04.T01","t":"Validar Cálculo de INSS Patronal e Empregado (alíquotas progressivas + teto)","e":"Cálculos Tributários e e-Social","m":"Gestão Trabalhista"},{"c":"M05-E04.T02","t":"Validar Cálculo de FGTS (8% mensal + multa rescisória 40% / acordo CLT 20%)","e":"Cálculos Tributários e e-Social","m":"Gestão Trabalhista"},{"c":"M05-E04.T03","t":"Validar Cálculo de IRRF (tabela progressiva + dedução de dependentes)","e":"Cálculos Tributários e e-Social","m":"Gestão Trabalhista"},{"c":"M05-E04.T04","t":"Validar Adicionais Específicos (Periculosidade 30%, Insalubridade 10/20/40% sobre mínimo, Adic Noturno 20%)","e":"Cálculos Tributários e e-Social","m":"Gestão Trabalhista"},{"c":"M05-E04.T05","t":"Enviar Eventos e-Social periódicos (S-1200 Remuneração, S-1210 Pagamento, S-1299 Fechamento)","e":"Cálculos Tributários e e-Social","m":"Gestão Trabalhista"},{"c":"M05-E04.T06","t":"Enviar Eventos e-Social não-periódicos (S-2200 Admissão, S-2299 Desligamento, S-2230 Afastamento)","e":"Cálculos Tributários e e-Social","m":"Gestão Trabalhista"},{"c":"M05-E05.T01","t":"Integrar Folha → CAP de Salários (M02-E21 — vencimento dia 5)","e":"Integração Folha ↔ ERP CONAG","m":"Gestão Trabalhista"},{"c":"M05-E05.T02","t":"Integrar Folha → CAP de Encargos (INSS dia 20, FGTS dia 7, IRRF dia 20, Sindical mensal)","e":"Integração Folha ↔ ERP CONAG","m":"Gestão Trabalhista"},{"c":"M05-E05.T03","t":"Integrar Folha → Contabilidade (rateio por Centro de Custo e Departamento)","e":"Integração Folha ↔ ERP CONAG","m":"Gestão Trabalhista"},{"c":"M05-E05.T04","t":"Vincular Apontamento de Horas em OS de Campo (M08-E11) — custo MO por talhão","e":"Integração Folha ↔ ERP CONAG","m":"Gestão Trabalhista"},{"c":"M05-E05.T05","t":"Validar Conciliação Folha × CAP × Contábil (rito mensal D+10)","e":"Integração Folha ↔ ERP CONAG","m":"Gestão Trabalhista"},{"c":"M05-E06.T01","t":"Trilha RH/DP: cadastros, lançamentos, fechamento, e-Social","e":"Treinamento e Operação Recorrente","m":"Gestão Trabalhista"},{"c":"M05-E06.T02","t":"Trilha Financeiro: integração CAP + conciliação contábil","e":"Treinamento e Operação Recorrente","m":"Gestão Trabalhista"},{"c":"M05-E06.T03","t":"Trilha Gestor: relatórios + custo MO por CC + custo MO por talhão","e":"Treinamento e Operação Recorrente","m":"Gestão Trabalhista"},{"c":"M05-E06.T04","t":"Certificação de autonomia operacional do POD trabalhista","e":"Treinamento e Operação Recorrente","m":"Gestão Trabalhista"},{"c":"M06-E01.T01","t":"Levantar e classificar bens existentes","e":"Cadastro e Configuração de Ativos","m":"Gestão Patrimonial"},{"c":"M06-E01.T01.S01","t":"Importar planilha de imobilizado existente do cliente","e":"Cadastro e Configuração de Ativos","m":"Gestão Patrimonial"},{"c":"M06-E01.T02","t":"Configurar categorias e vida útil gerencial","e":"Cadastro e Configuração de Ativos","m":"Gestão Patrimonial"},{"c":"M06-E01.T02.S01","t":"Cadastrar categorias (máquinas, veículos, benfeitorias, biológicos)","e":"Cadastro e Configuração de Ativos","m":"Gestão Patrimonial"},{"c":"M06-E01.T03","t":"Configurar critérios de depreciação gerencial","e":"Cadastro e Configuração de Ativos","m":"Gestão Patrimonial"},{"c":"M06-E01.T03.S01","t":"Escolher método de depreciação (linear ou saldos decrescentes)","e":"Cadastro e Configuração de Ativos","m":"Gestão Patrimonial"},{"c":"M06-E01.T03.S02","t":"Definir valor residual padrão por categoria","e":"Cadastro e Configuração de Ativos","m":"Gestão Patrimonial"},{"c":"M07-E04.T07","t":"Treinar Log de Movimentações de Produto","e":"Estoque, Movimentação e Pesagens","m":"Gestão de Suprimentos"},{"c":"M07-E01.T01","t":"Definir Unidades de Medida e tabela de conversão","e":"Cadastros de Suprimentos","m":"Gestão de Suprimentos"},{"c":"M07-E01.T01.S02","t":"Padronizar UM de estoque por classe","e":"Cadastros de Suprimentos","m":"Gestão de Suprimentos"},{"c":"M07-E01.T01.S03","t":"Cadastrar conversões UM-compra → UM-estoque","e":"Cadastros de Suprimentos","m":"Gestão de Suprimentos"},{"c":"M07-E01.T02","t":"Estruturar Categoria de Produto (operacional)","e":"Cadastros de Suprimentos","m":"Gestão de Suprimentos"},{"c":"M07-E01.T03","t":"Estruturar Categoria de Compra (contábil) com vínculo ao plano de contas","e":"Cadastros de Suprimentos","m":"Gestão de Suprimentos"},{"c":"M07-E01.T04","t":"Cadastrar Depósitos e Localizações","e":"Cadastros de Suprimentos","m":"Gestão de Suprimentos"},{"c":"M07-E02.T01","t":"Configurar fluxo de Requisição","e":"Ciclo de Compras de Produtos","m":"Gestão de Suprimentos"},{"c":"M07-E02.T02","t":"Configurar Pedido de Compra e condições de pagamento","e":"Ciclo de Compras de Produtos","m":"Gestão de Suprimentos"},{"c":"M07-E02.T03","t":"Configurar Recebimento (total, parcial, divergente)","e":"Ciclo de Compras de Produtos","m":"Gestão de Suprimentos"},{"c":"M07-E02.T04","t":"Configurar vínculo automático Compra → CAP","e":"Ciclo de Compras de Produtos","m":"Gestão de Suprimentos"},{"c":"M07-E03.T01","t":"Mapear catálogo de serviços recorrentes vs pontuais","e":"Compras de Serviços","m":"Gestão de Suprimentos"},{"c":"M07-E03.T02","t":"Configurar contratos-mãe para serviços recorrentes","e":"Compras de Serviços","m":"Gestão de Suprimentos"},{"c":"M08-E01.T01","t":"Cadastrar Culturas e Variedades (soja, milho, café, feijão)","e":"Configuração Base de Produção Agrícola","m":"Gestão da Produção Agrícola"},{"c":"M08-E01.T04","t":"Decidir Política de Lote (Lote vs Massa Única) por cultura","e":"Configuração Base de Produção Agrícola","m":"Gestão da Produção Agrícola"},{"c":"M08-E01.T06","t":"Cadastrar Destinos de Produção (silo, armazém, cerealista)","e":"Configuração Base de Produção Agrícola","m":"Gestão da Produção Agrícola"},{"c":"M08-E02.T02","t":"Lançar Previsão Inicial D-90 por talhão × safra","e":"Previsão de Colheita","m":"Gestão da Produção Agrícola"},{"c":"M08-E02.T05","t":"Previsão específica de café (peneira, % bebida mole, broca)","e":"Previsão de Colheita","m":"Gestão da Produção Agrícola"},{"c":"M08-E02.T06","t":"Treinar relatórios Previsão por Talhão e Consolidada por Safra","e":"Previsão de Colheita","m":"Gestão da Produção Agrícola"},{"c":"M08-E03.T01","t":"Treinar abertura de colheita por safra/talhão","e":"Colheita e Fechamento","m":"Gestão da Produção Agrícola"},{"c":"M08-E03.T05","t":"Fechamento de Colheita por Talhão (congela produção)","e":"Colheita e Fechamento","m":"Gestão da Produção Agrícola"},{"c":"M08-E03.T07","t":"Validar relatório Previsão x Realizado (KPI principal do macro)","e":"Colheita e Fechamento","m":"Gestão da Produção Agrícola"},{"c":"M08-E03.T08","t":"Tratar perdas e descartes (umidade alta, impureza, ardido)","e":"Colheita e Fechamento","m":"Gestão da Produção Agrícola"},{"c":"M08-E04.T02","t":"Operar Rastreabilidade por Lote (cadeia de custódia: talhão→safra→data)","e":"Produção, Lotes, Rastreabilidade e Valorização","m":"Gestão da Produção Agrícola"},{"c":"M08-E04.T03","t":"Configurar Movimentações de Produção (entrada, saída, transferência, ajuste)","e":"Produção, Lotes, Rastreabilidade e Valorização","m":"Gestão da Produção Agrícola"},{"c":"M08-E04.T05","t":"Definir critério de Valorização (custo médio, custo produção, valor mercado)","e":"Produção, Lotes, Rastreabilidade e Valorização","m":"Gestão da Produção Agrícola"},{"c":"M08-E04.T08","t":"Validar relatório de Estoque Agrícola Valorizado por safra/cultura","e":"Produção, Lotes, Rastreabilidade e Valorização","m":"Gestão da Produção Agrícola"},{"c":"M09-E02.T01","t":"Cadastrar Contrato de Venda (Pronta ou Forward — preço, volume, prazo, pagamento)","e":"Contratos e Operação de Venda","m":"Gestão da Produção Agrícola"},{"c":"M09-E02.T03","t":"Operar Romaneio de Saída (peso bruto, tara, líquido, impureza %, umidade %, motorista, placa)","e":"Contratos e Operação de Venda","m":"Gestão da Produção Agrícola"},{"c":"M09-E02.T06","t":"Disparar NF de Venda (M03-E05) + CAR (M02-E22) ao concluir entrega","e":"Contratos e Operação de Venda","m":"Gestão da Produção Agrícola"},{"c":"M10-E01.T01","t":"Cadastrar bombas internas e externas (S10, S500, gasolina/etanol, ARLA)","e":"Configuração Base de Frota","m":"Gestão de Frota"},{"c":"M10-E01.T02","t":"Cadastrar combustíveis em Cadastro de Produto (M15 Suprimentos)","e":"Configuração Base de Frota","m":"Gestão de Frota"},{"c":"M10-E01.T03","t":"Cadastrar categorias e subcategorias de manutenção (Motor, Hidráulico, Elétrico)","e":"Configuração Base de Frota","m":"Gestão de Frota"},{"c":"M10-E01.T04","t":"Cadastrar tipos de alerta (Preventivo / Corretivo)","e":"Configuração Base de Frota","m":"Gestão de Frota"},{"c":"M10-E02.T01","t":"Operar Movimentação de Entrada (NF combustível → vínculo CAP M02)","e":"Controle de Combustível","m":"Gestão de Frota"},{"c":"M10-E02.T02","t":"Operar Abastecimento de Ativo (com horímetro/km informado)","e":"Controle de Combustível","m":"Gestão de Frota"},{"c":"M10-E02.T03","t":"Operar Ajuste de Saldo (justificativa obrigatória — antifraude)","e":"Controle de Combustível","m":"Gestão de Frota"},{"c":"M10-E02.T04","t":"Operar Transferência entre Bombas","e":"Controle de Combustível","m":"Gestão de Frota"},{"c":"M10-E02.T05","t":"Registrar Abastecimento em Posto Externo (vínculo CAP)","e":"Controle de Combustível","m":"Gestão de Frota"},{"c":"M10-E02.T06","t":"Validar Painel de Combustível em Tempo Real (saldo + alerta crítico <10%)","e":"Controle de Combustível","m":"Gestão de Frota"},{"c":"M10-E02.T07","t":"Validar Relatório de Consumo e CHM Combustível por Ativo","e":"Controle de Combustível","m":"Gestão de Frota"},{"c":"M10-E03.T01","t":"Apontamento de Manutenção Própria (oficina interna)","e":"Controle de Manutenção","m":"Gestão de Frota"},{"c":"M10-E03.T01.S01","t":"Com saída de peça do estoque (M15)","e":"Controle de Manutenção","m":"Gestão de Frota"},{"c":"M10-E03.T01.S02","t":"Sem saída de peça (mão-de-obra apenas)","e":"Controle de Manutenção","m":"Gestão de Frota"},{"c":"M10-E03.T02","t":"Apontamento de Manutenção Terceirizada (vínculo NFS-e M02)","e":"Controle de Manutenção","m":"Gestão de Frota"},{"c":"M10-E03.T03","t":"Disparo e Tratamento de Alertas Preventivos","e":"Controle de Manutenção","m":"Gestão de Frota"},{"c":"M10-E03.T04","t":"Baixa de Peças do Estoque (vinculada à OS)","e":"Controle de Manutenção","m":"Gestão de Frota"},{"c":"M10-E03.T05","t":"Manutenção tipo Reforma (capitaliza em M14 Patrimonial)","e":"Controle de Manutenção","m":"Gestão de Frota"},{"c":"M10-E03.T06","t":"Validar Relatório: Histórico de Manutenção por Ativo","e":"Controle de Manutenção","m":"Gestão de Frota"},{"c":"M10-E03.T07","t":"Validar Relatório: CHM Total (combustível + manutenção + peças + depreciação)","e":"Controle de Manutenção","m":"Gestão de Frota"},{"c":"M11-E01.T01","t":"Configurar Plano de Contas Agrícola (Categoria → Subcategoria → Serviço)","e":"Configuração Base Agrícola","m":"Gestão Operacional de Campo"},{"c":"M11-E01.T01.S01","t":"Mapear categorias praticadas (Preparo, Plantio, Tratos, Colheita, Manejo)","e":"Configuração Base Agrícola","m":"Gestão Operacional de Campo"},{"c":"M11-E01.T01.S02","t":"Cadastrar subcategorias por categoria","e":"Configuração Base Agrícola","m":"Gestão Operacional de Campo"},{"c":"M11-E01.T01.S03","t":"Cadastrar serviços agrícolas terminais com unidade de medida","e":"Configuração Base Agrícola","m":"Gestão Operacional de Campo"},{"c":"M11-E01.T02","t":"Cadastrar Insumos Agrícolas (defensivos + fertilizantes — vincula M15)","e":"Configuração Base Agrícola","m":"Gestão Operacional de Campo"},{"c":"M11-E01.T03","t":"Configurar Fórmulas/Caldas Padrão (receita de tanque com dosagem por ha)","e":"Configuração Base Agrícola","m":"Gestão Operacional de Campo"},{"c":"M11-E02.T01","t":"Configurar OS Kanban (Planejado → Em execução → Concluído)","e":"Apontamento Agrícola e Ordem de Serviço","m":"Gestão Operacional de Campo"},{"c":"M11-E02.T02","t":"Treinar Cadastro Padrão de Apontamento Agrícola","e":"Apontamento Agrícola e Ordem de Serviço","m":"Gestão Operacional de Campo"},{"c":"M11-E02.T03","t":"Treinar Cadastro Simplificado (entrada rápida)","e":"Apontamento Agrícola e Ordem de Serviço","m":"Gestão Operacional de Campo"},{"c":"M11-E02.T04","t":"Treinar Cadastro em Lote por Talhão (vários talhões em 1 lançamento)","e":"Apontamento Agrícola e Ordem de Serviço","m":"Gestão Operacional de Campo"},{"c":"M11-E02.T05","t":"Treinar Cadastro em Lote Braçal (mão de obra braçal por talhão)","e":"Apontamento Agrícola e Ordem de Serviço","m":"Gestão Operacional de Campo"},{"c":"M11-E02.T06","t":"Treinar Duplicação de Apontamentos similares","e":"Apontamento Agrícola e Ordem de Serviço","m":"Gestão Operacional de Campo"},{"c":"M11-E02.T07","t":"Treinar Busca avançada de apontamentos","e":"Apontamento Agrícola e Ordem de Serviço","m":"Gestão Operacional de Campo"},{"c":"M11-E03.T01","t":"Lançar Previsão de Safra (Plano da safra por talhão × cultura × cronograma)","e":"Planejamento Agrícola e Análise","m":"Gestão Operacional de Campo"},{"c":"M11-E04.T01","t":"Cadastrar Postos de Chuva (estações pluviométricas vinculadas a talhões)","e":"Pluviometria e Controle de Chuvas","m":"Gestão Operacional de Campo"},{"c":"M11-E04.T02","t":"Operar Coleta Diária de Chuva (mobile)","e":"Pluviometria e Controle de Chuvas","m":"Gestão Operacional de Campo"},{"c":"M00-E02.T01","t":"Kickoff: apresentar plano de trabalho às equipes do cliente","e":"Validação do Plano de Trabalho","m":"(sem macro-módulo)"},{"c":"M00-E02.T02","t":"Definir cadência de reuniões (status semanal + comitê quinzenal + gates)","e":"Validação do Plano de Trabalho","m":"(sem macro-módulo)"},{"c":"M00-E02.T03","t":"Configurar canais de comunicação CONAG ↔ Cliente (WhatsApp, suporte, e-mail)","e":"Validação do Plano de Trabalho","m":"(sem macro-módulo)"},{"c":"M00-E02.T04","t":"Entregar acesso ao sistema (web + mobile) e validar credenciais iniciais","e":"Validação do Plano de Trabalho","m":"(sem macro-módulo)"},{"c":"M00-E02.T05","t":"Alinhamento de expectativas: motivo da contratação e métricas de sucesso","e":"Validação do Plano de Trabalho","m":"(sem macro-módulo)"},{"c":"M01-E02.T02","t":"Cadastro de usuários + atribuição de perfis","e":"Introdução ao ERP CONAG","m":"(sem macro-módulo)"}]</script>
+
+<script>
+(function(){
+"use strict";
+
+function readState(){ try{ return JSON.parse(document.getElementById('app-state').textContent); }catch(e){ return {focoRecomendado:'',proximasReunioes:[],checklistSemana:[],adminTasks:[],followups:[],catalogTasks:[],reunioesNaoRealizadas:[],clientes:[]}; } }
+var STATE = readState();
+
+var artifactApi = null;
+if (window.claude && typeof window.claude.use === 'function') {
+  window.claude.use('artifact').then(function(api){ artifactApi = api; });
+}
+function buildFullDocument(){
+  var doc = document.documentElement.cloneNode(true);
+  var s = doc.querySelector('#app-state');
+  s.textContent = JSON.stringify(STATE, null, 2);
+  return '<!doctype html>\n' + doc.outerHTML;
+}
+function persist(){
+  if (artifactApi) { artifactApi.publish(buildFullDocument()).catch(function(){}); }
+}
+
+function swPage(id,btn){
+  document.querySelectorAll('.pg').forEach(function(p){p.classList.remove('on');});
+  document.querySelectorAll('.ntab').forEach(function(t){t.classList.remove('on');});
+  document.getElementById(id).classList.add('on'); btn.classList.add('on');
+  if (id==='p2') renderGrade();
+}
+window.swPage = swPage;
+window.addEventListener('resize', function(){
+  var p2 = document.getElementById('p2');
+  if (p2 && p2.classList.contains('on')) renderGrade();
+});
+
+/* ── Foco recomendado ── */
+function renderFoco(){
+  document.getElementById('focoBody').innerHTML = '<div style="font-size:13px;line-height:1.65;color:var(--text2)">'+STATE.focoRecomendado+'</div>';
+}
+
+/* ── Próximas agendas (fictício) + modal ── */
+var DIAS_SEMANA = ['domingo','segunda','terça','quarta','quinta','sexta','sábado'];
+function parseDataISO(iso){
+  var p = iso.split('-').map(Number);
+  return new Date(p[0], p[1]-1, p[2]);
+}
+function quandoLabel(iso){
+  var hoje = new Date(); hoje.setHours(0,0,0,0);
+  var d = parseDataISO(iso);
+  var diffDias = Math.round((d - hoje) / 86400000);
+  var dd = String(d.getDate()).padStart(2,'0');
+  var mm = String(d.getMonth()+1).padStart(2,'0');
+  var dataFmt = dd+'/'+mm;
+  if (diffDias === 0) return 'Hoje, '+dataFmt;
+  if (diffDias === 1) return 'Amanhã, '+dataFmt;
+  return dataFmt+', '+DIAS_SEMANA[d.getDay()];
+}
+function horaInicioMin(hora){
+  var m = (hora||'').split(' ')[0].match(/(\d+)h(\d*)/);
+  if (!m) return 0;
+  return parseInt(m[1],10)*60 + (m[2]?parseInt(m[2],10):0);
+}
+function renderProximasReunioes(){
+  var el = document.getElementById('evList');
+  var list = STATE.proximasReunioes.slice().sort(function(a,b){
+    if (a.data !== b.data) return a.data < b.data ? -1 : 1;
+    return horaInicioMin(a.hora) - horaInicioMin(b.hora);
+  });
+  document.getElementById('evCnt').textContent = list.length + ' reuniões';
+  el.innerHTML = list.map(function(m){
+    return '<div class="evitem clickable" onclick="openModal(\''+m.id+'\')">'+
+      '<span class="evtime"><span class="ev-day-tag">'+quandoLabel(m.data)+'</span><br>'+m.hora.split(' ')[0]+'</span>'+
+      '<span class="evdot" style="background:'+m.cor+'"></span>'+
+      '<div class="evinfo"><div class="evtit">'+m.cliente+'</div><div class="evsub">'+m.tipo+'</div></div></div>';
+  }).join('');
+}
+var IMPL_STATUS = {
+  done:     ['b-green',  'Concluída'],
+  prog:     ['b-teal',   'Em andamento'],
+  reaberta: ['b-amber',  'Reaberta'],
+  bloq:     ['b-red',    'Bloqueada'],
+  parado:   ['b-amber',  'Sem avanço']
+};
+/* ── Correlação ponto da reunião × catálogo de tarefas (editável por cliente) ── */
+var CATALOGO_REF = (function(){ try{ return JSON.parse(document.getElementById('catalogo-ref').textContent); }catch(e){ return []; } })();
+var CATALOGO_IDX = {};
+CATALOGO_REF.forEach(function(t){ CATALOGO_IDX[t.c] = t; });
+function normTxt(s){ return (s||'').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,''); }
+function escHtml(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function ajustesCliente(cliente){
+  STATE.correlacoesAjustes = STATE.correlacoesAjustes || {};
+  return STATE.correlacoesAjustes[cliente] || {};
+}
+function vinculosPonto(m, p){
+  var aj = ajustesCliente(m.cliente)[p.id];
+  return aj ? aj.vinculos : p.vinculos;
+}
+function salvarVinculos(m, p, lista){
+  STATE.correlacoesAjustes = STATE.correlacoesAjustes || {};
+  var porCli = STATE.correlacoesAjustes[m.cliente] = STATE.correlacoesAjustes[m.cliente] || {};
+  porCli[p.id] = { vinculos: lista, ponto: p.ponto, sugerido: p.vinculos, em: new Date().toLocaleDateString('pt-BR') };
+  persist();
+}
+function restaurarVinculos(m, p){
+  var porCli = (STATE.correlacoesAjustes||{})[m.cliente];
+  if (porCli) { delete porCli[p.id]; if (!Object.keys(porCli).length) delete STATE.correlacoesAjustes[m.cliente]; }
+  persist();
+}
+function buscarCatalogo(q, excluir){
+  var termos = normTxt(q).split(/\s+/).filter(function(x){ return x.length > 1; });
+  if (!termos.length) return [];
+  return CATALOGO_REF.map(function(t){
+    var alvo = normTxt(t.c+' '+t.t+' '+t.e+' '+t.m), sc = 0;
+    termos.forEach(function(w){ if (alvo.indexOf(w) > -1) sc += (normTxt(t.t).indexOf(w) > -1 ? 2 : 1); });
+    return { t: t, sc: sc };
+  }).filter(function(x){ return x.sc > 0 && excluir.indexOf(x.t.c) < 0; })
+    .sort(function(a,b){ return b.sc - a.sc; }).slice(0, 8).map(function(x){ return x.t; });
+}
+function implPonto(m, p){
+  var st = IMPL_STATUS[p.status] || ['b-gray', p.status];
+  var vs = vinculosPonto(m, p);
+  var ajustado = !!ajustesCliente(m.cliente)[p.id];
+  var chips = vs.map(function(c){
+    var t = CATALOGO_IDX[c];
+    return '<span class="vchip" title="'+escHtml(t ? t.e+' · '+t.m : 'Código fora do catálogo vigente')+'">'+
+      '<span class="jkey">'+escHtml(c)+'</span> '+escHtml(t ? t.t : '(fora do catálogo)')+
+      '<button class="vchip-x" data-act="rm" data-p="'+p.id+'" data-c="'+escHtml(c)+'" title="Remover vínculo">×</button></span>';
+  }).join('');
+  if (!vs.length) chips = '<span class="vchip vchip-vazio">Sem vínculo com o catálogo</span>';
+  return '<li data-ponto="'+p.id+'"><div style="display:flex;justify-content:space-between;gap:8px;align-items:baseline">'+
+      '<span>'+escHtml(p.ponto)+'</span><span class="badge '+st[0]+'">'+st[1]+'</span></div>'+
+    '<div class="vchips">'+chips+
+      '<button class="vchip-add" data-act="add" data-p="'+p.id+'">+ vincular</button>'+
+      (ajustado ? '<span class="vchip-aj">ajustado por você</span><button class="vchip-add" data-act="reset" data-p="'+p.id+'">↺ sugestão original</button>' : '')+
+    '</div><div class="vbusca" id="vbusca-'+p.id+'" hidden>'+
+      '<input type="text" class="fsrch" style="width:100%" placeholder="Buscar tarefa no catálogo (ex.: conciliação, fluxo de caixa, M03-E04)" data-act="q" data-p="'+p.id+'">'+
+      '<div class="vbusca-res" id="vres-'+p.id+'"></div></div></li>';
+}
+function renderImplantacao(m){
+  var im = m.implantacao;
+  if (!im) return '';
+  var disc = im.pontos.filter(function(p){ return p.tipo === 'd'; });
+  var prox = im.pontos.filter(function(p){ return p.tipo === 'p'; });
+  return '<div id="implBox">'+
+    '<div class="modal-section"><h4>Pontos discutidos na última reunião ('+im.referencia+') × catálogo</h4>'+
+      (disc.length ? '<ul class="modal-list prog">'+disc.map(function(p){ return implPonto(m,p); }).join('')+'</ul>' : '<div class="empty">Nenhum ponto registrado</div>')+'</div>'+
+    '<div class="modal-section"><h4>Próximos pontos × catálogo</h4>'+
+      '<ul class="modal-list next">'+prox.map(function(p){ return implPonto(m,p); }).join('')+'</ul>'+
+      '<div style="font-size:10.5px;color:var(--text3);margin-top:7px">Vínculos sugeridos por proximidade entre o assunto e o título/épico do catálogo. Ajustes valem só para este cliente.</div></div>'+
+  '</div>';
+}
+function rerenderImpl(m){
+  var box = document.getElementById('implBox');
+  if (box) box.outerHTML = renderImplantacao(m);
+}
+document.addEventListener('click', function(ev){
+  var b = ev.target.closest('#implBox [data-act]');
+  if (!b || b.tagName === 'INPUT') return;
+  var m = STATE.proximasReunioes.find(function(x){ return x.id === currentReuniaoId; });
+  if (!m || !m.implantacao) return;
+  var p = m.implantacao.pontos.find(function(x){ return x.id === b.getAttribute('data-p'); });
+  if (!p) return;
+  var act = b.getAttribute('data-act');
+  if (act === 'add') {
+    var box = document.getElementById('vbusca-'+p.id);
+    box.hidden = !box.hidden;
+    if (!box.hidden) box.querySelector('input').focus();
+    return;
+  }
+  var vs = vinculosPonto(m, p).slice();
+  if (act === 'rm') { vs = vs.filter(function(c){ return c !== b.getAttribute('data-c'); }); salvarVinculos(m, p, vs); }
+  else if (act === 'pick') { vs.push(b.getAttribute('data-c')); salvarVinculos(m, p, vs); }
+  else if (act === 'reset') { restaurarVinculos(m, p); }
+  rerenderImpl(m);
+});
+document.addEventListener('input', function(ev){
+  var inp = ev.target;
+  if (!inp.matches || !inp.matches('#implBox input[data-act="q"]')) return;
+  var m = STATE.proximasReunioes.find(function(x){ return x.id === currentReuniaoId; });
+  var p = m && m.implantacao.pontos.find(function(x){ return x.id === inp.getAttribute('data-p'); });
+  if (!p) return;
+  var res = buscarCatalogo(inp.value, vinculosPonto(m, p));
+  document.getElementById('vres-'+p.id).innerHTML = res.map(function(t){
+    return '<button class="vbusca-item" data-act="pick" data-p="'+p.id+'" data-c="'+escHtml(t.c)+'">'+
+      '<span class="jkey">'+escHtml(t.c)+'</span> '+escHtml(t.t)+'<span class="vbusca-ep">'+escHtml(t.e)+'</span></button>';
+  }).join('') || (inp.value.trim().length > 1 ? '<div class="vbusca-ep" style="padding:6px 2px">Nada encontrado</div>' : '');
+});
+var currentReuniaoId = null;
+function openModal(id){
+  var m = STATE.proximasReunioes.find(function(x){return x.id===id;});
+  if (!m) return;
+  currentReuniaoId = id;
+  document.getElementById('modalTitle').textContent = m.cliente;
+  document.getElementById('modalSub').textContent = quandoLabel(m.data)+' · '+m.hora+' · '+m.tipo;
+  var body =
+    '<div class="modal-section"><h4>Resumo — status do cliente e última reunião</h4><div class="modal-resumo">'+m.resumo+'</div></div>'+
+    renderImplantacao(m)+
+    '<div class="modal-section"><h4>Tarefas do cliente</h4><ul class="modal-list cli">'+m.tarefasCliente.map(function(x){return '<li>'+x+'</li>';}).join('')+'</ul></div>'+
+    '<div class="modal-section"><h4>Sugestão de próximos passos</h4><ul class="modal-list next">'+m.proximosPassos.map(function(x){return '<li>'+x+'</li>';}).join('')+'</ul></div>'+
+    '<div class="modal-section"><h4>Pendências da reunião anterior</h4><ul class="modal-list pend">'+m.pendenciasAnteriores.map(function(x){return '<li>'+x+'</li>';}).join('')+'</ul></div>'+
+    '<div class="modal-section" style="border-top:0.5px solid var(--border);padding-top:16px"><button onclick="openNaoRealizadaModal()" style="padding:8px 16px;font-size:12px;font-weight:700;color:var(--red);background:var(--red-dim);border:0.5px solid rgba(224,82,82,0.3);border-radius:var(--r-pill);cursor:pointer">Sinalizar que a reunião não ocorreu</button></div>';
+  document.getElementById('modalBody').innerHTML = body;
+  document.getElementById('modalOverlay').classList.add('open');
+}
+function closeModal(){ document.getElementById('modalOverlay').classList.remove('open'); currentReuniaoId = null; }
+window.openModal = openModal;
+window.closeModal = closeModal;
+
+/* ── Sinalizar reunião não realizada ── */
+var pendingNaoRealizadaId = null;
+function openNaoRealizadaModal(){
+  if (!currentReuniaoId) return;
+  var m = STATE.proximasReunioes.find(function(x){return x.id===currentReuniaoId;});
+  if (!m) return;
+  pendingNaoRealizadaId = currentReuniaoId;
+  document.getElementById('naoRealizadaModalItemLabel').textContent = m.cliente+' · '+quandoLabel(m.data)+' · '+m.hora;
+  document.getElementById('naoRealizadaModalText').value = '';
+  document.getElementById('naoRealizadaModalOverlay').classList.add('open');
+  setTimeout(function(){ document.getElementById('naoRealizadaModalText').focus(); }, 50);
+}
+function closeNaoRealizadaModal(confirmar){
+  document.getElementById('naoRealizadaModalOverlay').classList.remove('open');
+  if (confirmar && pendingNaoRealizadaId) {
+    var idx = STATE.proximasReunioes.findIndex(function(x){return x.id===pendingNaoRealizadaId;});
+    if (idx > -1) {
+      var m = STATE.proximasReunioes[idx];
+      var motivo = document.getElementById('naoRealizadaModalText').value.trim();
+      STATE.reunioesNaoRealizadas = STATE.reunioesNaoRealizadas || [];
+      STATE.reunioesNaoRealizadas.push({
+        id: m.id, cliente: m.cliente, data: m.data, hora: m.hora,
+        motivo: motivo || '(sem motivo informado)',
+        registradoEm: new Date().toLocaleDateString('pt-BR'),
+        processado: false
+      });
+      STATE.proximasReunioes.splice(idx, 1);
+    }
+    closeModal();
+    renderProximasReunioes();
+    persist();
+  }
+  pendingNaoRealizadaId = null;
+}
+window.openNaoRealizadaModal = openNaoRealizadaModal;
+window.closeNaoRealizadaModal = closeNaoRealizadaModal;
+
+/* ── Página de Clientes (fichas) ── */
+function escapeHtml(s){
+  return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+var clienteFiltroAtivo = 'mine';
+var CLI_CAT_LABEL = { mine:'Meus', other:'Outro consultor', finished:'Finalizados' };
+function setClienteFiltro(f, btn){
+  clienteFiltroAtivo = f;
+  document.querySelectorAll('#p5 .ftab').forEach(function(b){b.classList.remove('on');});
+  btn.classList.add('on');
+  renderClientes();
+}
+window.setClienteFiltro = setClienteFiltro;
+function consultorCurto(c){
+  if (c.categoria === 'mine') return 'Eu';
+  if (c.categoria === 'finished') return 'Encerrado';
+  return c.consultor.split(/[,(]| — /)[0].trim();
+}
+function clienteCardHtml(c){
+  return '<div class="cli-card cat-'+c.categoria+'" onclick="openClienteModal(\''+c.id+'\')">'+
+    '<div class="cli-card-top"><span class="cli-name">'+escapeHtml(c.cliente.split(' (')[0])+'</span><span class="cli-consultor">'+escapeHtml(consultorCurto(c))+'</span></div>'+
+    '<div class="cli-status">'+escapeHtml(c.resumo)+'</div>'+
+    '<div class="cli-meta">'+
+      '<span>'+(c.papeis||[]).length+' pessoa'+((c.papeis||[]).length===1?'':'s')+'</span>'+
+      '<span class="'+(c.riscos.length?'has':'')+'">'+c.riscos.length+' risco'+(c.riscos.length===1?'':'s')+'</span>'+
+    '</div>'+
+  '</div>';
+}
+function renderClientes(){
+  var el = document.getElementById('clientesList');
+  var termo = (document.getElementById('clienteSearch').value || '').toLowerCase().trim();
+  var todos = STATE.clientes || [];
+  document.getElementById('cntMine').textContent = todos.filter(function(c){return c.categoria==='mine';}).length;
+  document.getElementById('cntOther').textContent = todos.filter(function(c){return c.categoria==='other';}).length;
+  document.getElementById('cntFinished').textContent = todos.filter(function(c){return c.categoria==='finished';}).length;
+  document.getElementById('cntAll').textContent = todos.length;
+
+  function matches(c){
+    if (!termo) return true;
+    return (c.cliente+' '+c.consultor).toLowerCase().indexOf(termo) > -1;
+  }
+  var categorias = clienteFiltroAtivo === 'all' ? ['mine','other','finished'] : [clienteFiltroAtivo];
+  var html = '';
+  categorias.forEach(function(cat){
+    var lista = todos.filter(function(c){return c.categoria===cat && matches(c);});
+    if (clienteFiltroAtivo === 'all') {
+      html += '<div class="cli-section-title">'+CLI_CAT_LABEL[cat]+' <span class="cli-section-count">'+lista.length+'</span></div>';
+    }
+    html += lista.length ? '<div class="cli-grid">'+lista.map(clienteCardHtml).join('')+'</div>' : '<div class="cli-empty">Nenhum cliente encontrado</div>';
+  });
+  el.innerHTML = html;
+}
+function simpleListHtml(items, cor){
+  if (!items.length) return '';
+  return '<ul class="modal-list" style="--sev:'+cor+'">'+items.map(function(x){return '<li>'+escapeHtml(x)+'</li>';}).join('')+'</ul>';
+}
+function paragraphsHtml(text){
+  return (text||'').split(/\n\n+/).map(function(p){return '<p style="margin:0 0 10px">'+escapeHtml(p)+'</p>';}).join('');
+}
+var currentClienteModalId = null;
+function openClienteModal(id){
+  var c = (STATE.clientes||[]).find(function(x){return x.id===id;});
+  if (!c) return;
+  currentClienteModalId = id;
+  document.getElementById('clienteModalTitle').textContent = c.cliente;
+  document.getElementById('clienteModalSub').textContent = c.tipo+' · '+consultorCurto(c)+(c.categoria==='finished' ? ' · Encerrado' : '');
+  var body = '<div class="modal-section"><h4>Resumo</h4><div class="modal-resumo">'+escapeHtml(c.resumo)+'</div></div>';
+  body += '<div class="modal-section"><h4>Resumo Executivo</h4><div class="modal-resumo">'+paragraphsHtml(c.resumoExecutivo)+'</div></div>';
+  if ((c.papeis||[]).length) {
+    body += '<div class="modal-section"><h4>Papéis e Responsabilidades — Quem é quem</h4><ul class="modal-list" style="--sev:var(--teal)">'+
+      c.papeis.map(function(p){return '<li><strong>'+escapeHtml(p.nome)+'</strong> — '+escapeHtml(p.papel)+'</li>';}).join('')+
+    '</ul></div>';
+  }
+  body += '<div class="modal-section"><h4>Objetivos do Projeto</h4><div class="modal-resumo">'+paragraphsHtml(c.objetivos)+'</div></div>';
+  var diagHtml = '<div class="modal-resumo" style="margin-bottom:'+(c.riscos.length?'10px':'0')+'">'+paragraphsHtml(c.diagnostico)+'</div>';
+  if (c.riscos.length) {
+    diagHtml += '<div class="ml" style="margin-top:10px">Riscos-chave</div>'+simpleListHtml(c.riscos,'var(--red)');
+  }
+  body += '<div class="modal-section"><h4>Diagnóstico Geral</h4>'+diagHtml+'</div>';
+  document.getElementById('clienteModalBody').innerHTML = body;
+  document.getElementById('clienteModalOverlay').classList.add('open');
+}
+function closeClienteModal(){ document.getElementById('clienteModalOverlay').classList.remove('open'); currentClienteModalId = null; }
+window.openClienteModal = openClienteModal;
+window.closeClienteModal = closeClienteModal;
+
+/* ── Gerar PDF do relatório de cliente (via impressão do navegador) ── */
+var CONAG_LOGO_B64 = "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";
+var PR_CATEGORIA_LABEL = {
+  mine: 'Cliente sob acompanhamento direto do consultor',
+  other: 'Cliente ativo sob responsabilidade de outro consultor CONAG',
+  finished: 'Projeto finalizado / encerrado'
+};
+var PR_MESES = ['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'];
+function prDataPorExtenso(d){ return d.getDate()+' de '+PR_MESES[d.getMonth()]+' de '+d.getFullYear(); }
+function prParagraphs(text){
+  return (text||'').split(/\n\n+/).map(function(p){return '<p class="pr-p">'+escapeHtml(p)+'</p>';}).join('');
+}
+function montarHtmlRelatorioCliente(c){
+  var nomeCurto = c.cliente.split(' (')[0];
+  var papeisHtml = (c.papeis||[]).map(function(p){return '<li><strong>'+escapeHtml(p.nome)+'</strong> — '+escapeHtml(p.papel)+'</li>';}).join('');
+  var riscosHtml = (c.riscos||[]).map(function(r,i){
+    return '<div class="pr-risco"><div class="pr-risco-badge">'+(i+1)+'</div><div>'+escapeHtml(r)+'</div></div>';
+  }).join('');
+  var numPapeis = papeisHtml ? 3 : null;
+  var numObjetivos = papeisHtml ? 4 : 3;
+  var numDiagnostico = papeisHtml ? 5 : 4;
+  var numRiscos = papeisHtml ? 6 : 5;
+  function n(x){ return String(x).padStart(2,'0'); }
+
+  var html = '<div class="pr-cover pr-body">'+
+    '<img class="pr-logo" src="data:image/png;base64,'+CONAG_LOGO_B64+'" alt="CONAG">'+
+    '<div class="pr-eyebrow">Relatório de Diagnóstico do Cliente</div>'+
+    '<h1 class="pr-title">'+escapeHtml(nomeCurto)+'</h1>'+
+    '<div class="pr-sub">'+escapeHtml(c.tipo||'Relatório de diagnóstico do cliente')+'</div>'+
+    '<hr class="pr-rule">'+
+    '<div class="pr-meta">'+
+      '<div class="k">Consultor</div><div class="v">'+escapeHtml(consultorCurto(c))+'</div>'+
+      '<div class="k">Situação</div><div class="v">'+escapeHtml(PR_CATEGORIA_LABEL[c.categoria])+'</div>'+
+      '<div class="k">Data do relatório</div><div class="v">'+escapeHtml(prDataPorExtenso(new Date()))+'</div>'+
+    '</div>'+
+  '</div>';
+
+  html += '<div class="pr-body">';
+  html += '<div class="pr-section"><div class="pr-section-head"><span class="pr-num">01</span><span class="pr-section-title">Resumo</span></div><p class="pr-p">'+escapeHtml(c.resumo)+'</p></div>';
+  html += '<div class="pr-section"><div class="pr-section-head"><span class="pr-num">02</span><span class="pr-section-title">Resumo Executivo</span></div>'+prParagraphs(c.resumoExecutivo)+'</div>';
+  if (papeisHtml) {
+    html += '<div class="pr-section"><div class="pr-section-head"><span class="pr-num">'+n(numPapeis)+'</span><span class="pr-section-title">Papéis e Responsabilidades — Quem é quem</span></div><ul class="pr-plain">'+papeisHtml+'</ul></div>';
+  }
+  html += '<div class="pr-section"><div class="pr-section-head"><span class="pr-num">'+n(numObjetivos)+'</span><span class="pr-section-title">Objetivos do Projeto</span></div>'+prParagraphs(c.objetivos)+'</div>';
+  html += '<div class="pr-section"><div class="pr-section-head"><span class="pr-num">'+n(numDiagnostico)+'</span><span class="pr-section-title">Diagnóstico Geral</span></div>'+prParagraphs(c.diagnostico)+'</div>';
+  if (riscosHtml) {
+    html += '<div class="pr-section"><div class="pr-section-head"><span class="pr-num">'+n(numRiscos)+'</span><span class="pr-section-title">Riscos-chave</span></div>'+riscosHtml+'</div>';
+  }
+  html += '<div class="pr-footer">CONAG Agro Soluções · Relatório de Diagnóstico — '+escapeHtml(nomeCurto)+'</div>';
+  html += '</div>';
+  return html;
+}
+function gerarPdfCliente(){
+  var c = (STATE.clientes||[]).find(function(x){return x.id===currentClienteModalId;});
+  if (!c) return;
+  document.getElementById('printArea').innerHTML = montarHtmlRelatorioCliente(c);
+  window.print();
+}
+window.gerarPdfCliente = gerarPdfCliente;
+document.addEventListener('keydown', function(e){ if (e.key==='Escape') { closeModal(); closeCommentModal(false); closeChecklistModal(); closeFollowupModal(false); closeNaoRealizadaModal(false); closeClienteModal(); } });
+
+/* ── Checklist da semana (fictício, escopo ampliado) ── */
+var CS_TAG = { prazo:{l:'Prazo esta semana', c:'b-amber'}, cruzamento:{l:'Pendência × agenda', c:'b-teal'}, 'sem-agenda':{l:'Sem reunião marcada', c:'b-purple'}, followup:{l:'Follow-up', c:'b-gray'} };
+function commentNoteHtml(i){
+  if (!i.checked || !i.comentario) return '';
+  return '<div class="taskitem-comment">💬 '+i.comentario+(i.comentarioData?' <span style="opacity:0.6">— '+i.comentarioData+'</span>':'')+'</div>';
+}
+function renderCsItem(i){
+  var tag = CS_TAG[i.tipo] || {l:i.tipo, c:'b-gray'};
+  return '<div class="taskitem"><label>'+
+    '<input type="checkbox" '+(i.checked?'checked':'')+' data-cs-id="'+i.id+'">'+
+    '<span class="ttit '+(i.checked?'x':'')+'" style="flex:1">'+i.label+'</span></label>'+
+    '<span class="badge '+tag.c+'" style="flex-shrink:0;margin-top:1px">'+tag.l+'</span></div>'+
+    commentNoteHtml(i);
+}
+function renderChecklistSemana(){
+  var el = document.getElementById('clList');
+  var items = STATE.checklistSemana;
+  var pendentes = items.filter(function(i){return !i.checked && !i.futuro;});
+  document.getElementById('clCnt').textContent = pendentes.length + ' pendentes';
+  el.innerHTML = pendentes.length ? pendentes.map(renderCsItem).join('') : '<div class="empty">Nenhum item pendente</div>';
+}
+
+/* ── Checklist genérico (tarefas administrativas / internas) ── */
+function renderCheck(items, elId, cntId, cntSuffix){
+  var el = document.getElementById(elId);
+  if (cntId) {
+    var pend = items.filter(function(i){return !i.checked;}).length;
+    document.getElementById(cntId).textContent = pend + ' ' + (cntSuffix||'pendentes');
+  }
+  if (!items.length){ el.innerHTML = '<div class="empty">Nenhum item</div>'; return; }
+  el.innerHTML = items.map(function(i){
+    return '<div class="taskitem"><label>'+
+      '<input type="checkbox" '+(i.checked?'checked':'')+' data-id="'+i.id+'">'+
+      '<span class="ttit '+(i.checked?'x':'')+'">'+i.label+'</span></label></div>'+
+      commentNoteHtml(i);
+  }).join('');
+}
+function renderAllChecks(){
+  renderChecklistSemana();
+  renderCheck(STATE.adminTasks, 'adList', 'adCnt');
+  if (document.getElementById('checklistModalOverlay').classList.contains('open')) renderChecklistModal();
+}
+function findChecklistItem(t){
+  var csId = t.getAttribute('data-cs-id');
+  if (csId) return STATE.checklistSemana.find(function(i){return i.id===csId;});
+  var id = t.getAttribute('data-id');
+  if (!id) return null;
+  return STATE.adminTasks.find(function(i){return i.id===id;});
+}
+document.addEventListener('change', function(e){
+  var t = e.target;
+  if (!t || t.type !== 'checkbox') return;
+  var item = findChecklistItem(t);
+  if (!item) return;
+  if (t.checked && !item.checked) {
+    openCommentModal(item);
+    return;
+  }
+  item.checked = t.checked;
+  if (!t.checked) { item.comentario = null; item.comentarioData = null; }
+  renderAllChecks();
+  persist();
+});
+
+/* ── Modal — checklist completo (pendentes / concluídos por data) ── */
+function parseDataBR(d){
+  var p = (d||'').split('/');
+  if (p.length!==3) return 0;
+  return Number(p[2])*10000 + Number(p[1])*100 + Number(p[0]);
+}
+function renderChecklistModal(){
+  var items = STATE.checklistSemana;
+  var pendentesSemana = items.filter(function(i){return !i.checked && !i.futuro;});
+  var pendentesFuturas = items.filter(function(i){return !i.checked && i.futuro;});
+  var concluidos = items.filter(function(i){return i.checked;});
+  document.getElementById('checklistModalSub').textContent = pendentesSemana.length+' pendentes esta semana'+(pendentesFuturas.length?' · '+pendentesFuturas.length+' de próximas semanas':'')+' · '+concluidos.length+' concluídos';
+  var grupos = {};
+  concluidos.forEach(function(i){
+    var d = i.comentarioData || 'Sem data registrada';
+    (grupos[d] = grupos[d]||[]).push(i);
+  });
+  var datas = Object.keys(grupos).sort(function(a,b){return parseDataBR(b)-parseDataBR(a);});
+  var html = '<div class="modal-section"><h4>Pendentes esta semana ('+pendentesSemana.length+')</h4>'+
+    (pendentesSemana.length ? pendentesSemana.map(renderCsItem).join('') : '<div class="empty">Nenhum item pendente</div>')+
+    '</div>'+
+    (pendentesFuturas.length ? '<div class="modal-section"><h4>Pendências de próximas semanas ('+pendentesFuturas.length+')</h4>'+
+      pendentesFuturas.map(renderCsItem).join('')+
+    '</div>' : '')+
+    '<div class="modal-section"><h4>Concluídos ('+concluidos.length+')</h4>'+
+    (datas.length ? datas.map(function(d){
+      return '<div style="font-size:11px;font-weight:800;letter-spacing:0.06em;text-transform:uppercase;color:var(--text3);margin:12px 0 6px">'+d+'</div>'+grupos[d].map(renderCsItem).join('');
+    }).join('') : '<div class="empty">Nenhum item concluído ainda</div>')+
+    '</div>';
+  document.getElementById('checklistModalBody').innerHTML = html;
+}
+function openChecklistModal(){
+  renderChecklistModal();
+  document.getElementById('checklistModalOverlay').classList.add('open');
+}
+function closeChecklistModal(){
+  document.getElementById('checklistModalOverlay').classList.remove('open');
+}
+window.openChecklistModal = openChecklistModal;
+window.closeChecklistModal = closeChecklistModal;
+
+/* ── Modal de comentário ao concluir item ── */
+var pendingCommentItem = null;
+function openCommentModal(item){
+  pendingCommentItem = item;
+  document.getElementById('commentModalItemLabel').textContent = item.label;
+  document.getElementById('commentModalText').value = '';
+  document.getElementById('commentModalOverlay').classList.add('open');
+  setTimeout(function(){ document.getElementById('commentModalText').focus(); }, 50);
+}
+function closeCommentModal(confirmar){
+  document.getElementById('commentModalOverlay').classList.remove('open');
+  if (confirmar && pendingCommentItem) {
+    var texto = document.getElementById('commentModalText').value.trim();
+    pendingCommentItem.checked = true;
+    pendingCommentItem.comentario = texto || null;
+    pendingCommentItem.comentarioData = new Date().toLocaleDateString('pt-BR');
+    persist();
+  }
+  pendingCommentItem = null;
+  renderAllChecks();
+}
+window.closeCommentModal = closeCommentModal;
+function addChecklistItem(){
+  var input = document.getElementById('clInput');
+  var texto = input.value.trim();
+  if (!texto) return;
+  STATE.checklistSemana.push({id:'cs-'+Date.now(), label:texto, tipo:'followup', checked:false});
+  input.value='';
+  renderAllChecks();
+  persist();
+}
+window.addChecklistItem = addChecklistItem;
+function addAdmin(){
+  var input = document.getElementById('adInput');
+  var texto = input.value.trim();
+  if (!texto) return;
+  STATE.adminTasks.push({id:'admin-'+Date.now(), label:texto, checked:false});
+  input.value='';
+  renderAllChecks();
+  persist();
+}
+window.addAdmin = addAdmin;
+
+/* ── Agenda semanal real, estrutura multi-semana ── */
+var DIAS = ['Seg','Ter','Qua','Qui','Sex'];
+var HORAS_INICIO = 7, HORAS_FIM = 19, SLOT_H = 48;
+/* Cada semana: label exibido, datas (dia do mês por coluna Seg-Sex), hoje (índice 0-4 do dia real de hoje nesta semana, ou null se não é a semana atual), events (mesmo formato de antes, com "dia" 0-4). Semanas sem dados processados ficam com events:[] — não é bug, é honestidade: só existe apontamento real para a semana que já foi processada. */
+/* WEEKS: grade de agenda (seg-sex). No modelo começa só com a semana atual, calculada
+   pela data real do navegador. A assistente acrescenta semanas e eventos ao atualizar o Planner. */
+var WEEKS = (function(){
+  var MESES = ['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'];
+  var d = new Date(); d.setHours(0,0,0,0);
+  var dow = d.getDay(); var seg = new Date(d); seg.setDate(d.getDate() - ((dow + 6) % 7));
+  var datas = [], sex;
+  for (var i = 0; i < 5; i++) { var x = new Date(seg); x.setDate(seg.getDate() + i); datas.push(String(x.getDate()).padStart(2,'0')); sex = x; }
+  var label = datas[0] + (seg.getMonth() !== sex.getMonth() ? ' de ' + MESES[seg.getMonth()] : '') + ' – ' + datas[4] + ' de ' + MESES[sex.getMonth()] + ' de ' + sex.getFullYear();
+  return [{ label: label, datas: datas, hoje: null, events: [] }];
+})();
+var HOJE_WEEK_INDEX = 0;
+var currentWeekIndex = HOJE_WEEK_INDEX;
+function mudarSemana(delta){
+  var novo = currentWeekIndex + delta;
+  if (novo < 0 || novo >= WEEKS.length) return;
+  currentWeekIndex = novo;
+  renderSemanaAtual();
+}
+window.mudarSemana = mudarSemana;
+function irParaHoje(){
+  currentWeekIndex = HOJE_WEEK_INDEX;
+  renderSemanaAtual();
+}
+window.irParaHoje = irParaHoje;
+function updateBtnHoje(){
+  var btn = document.getElementById('btnHoje');
+  var w = WEEKS[HOJE_WEEK_INDEX];
+  if (btn){
+    if (w.hoje !== null && w.hoje !== undefined){
+      btn.textContent = 'Hoje: ' + DIAS[w.hoje] + ' ' + w.datas[w.hoje];
+    } else {
+      btn.textContent = 'Semana em foco: ' + w.label;
+    }
+  }
+}
+var DIAS_SEMANA_PT = ['DOMINGO','SEGUNDA','TERÇA','QUARTA','QUINTA','SEXTA','SÁBADO'];
+var MESES_PT = ['JAN','FEV','MAR','ABR','MAI','JUN','JUL','AGO','SET','OUT','NOV','DEZ'];
+function updateDlbl(){
+  var el = document.getElementById('dlbl');
+  if (!el) return;
+  var d = new Date();
+  el.textContent = DIAS_SEMANA_PT[d.getDay()] + ' · ' + String(d.getDate()).padStart(2,'0') + ' ' + MESES_PT[d.getMonth()];
+}
+function renderSemanaAtual(){
+  document.getElementById('semanaLabel').textContent = WEEKS[currentWeekIndex].label;
+  document.getElementById('btnSemanaAnt').disabled = (currentWeekIndex === 0);
+  document.getElementById('btnSemanaProx').disabled = (currentWeekIndex === WEEKS.length - 1);
+  renderGrade();
+  renderLista();
+  renderHorasResumo();
+}
+function fmtH(h){ var hh=Math.floor(h), mm=Math.round((h-hh)*60); return String(hh).padStart(2,'0')+':'+String(mm).padStart(2,'0'); }
+function renderGrade(){
+  var w = WEEKS[currentWeekIndex];
+  var header = document.getElementById('gradeHeader');
+  header.innerHTML = '<div class="grade-header-cell" style="font-size:9px;color:var(--text3)">HORA</div>' +
+    DIAS.map(function(d,i){
+      var isHoje = (w.hoje===i);
+      return '<div class="grade-header-cell '+(isHoje?'hoje':'')+'"><div style="font-size:10px;letter-spacing:0.08em">'+d+'</div>'+
+        '<div style="font-size:17px;font-weight:700;font-family:\'Archivo Black\',sans-serif;margin-top:1px">'+w.datas[i]+'</div></div>';
+    }).join('');
+  var body = document.getElementById('gradeBody');
+  var rows = [];
+  for (var h=HORAS_INICIO; h<HORAS_FIM; h++){
+    rows.push('<div class="grade-row"><div class="grade-hour">'+String(h).padStart(2,'0')+'h</div>'+
+      DIAS.map(function(){return '<div class="grade-cell"></div>';}).join('')+'</div>');
+  }
+  body.innerHTML = '<div style="position:relative">'+rows.join('')+'</div>';
+  var container = body.querySelector('div');
+  w.events.forEach(function(ev){
+    var top = (ev.h - HORAS_INICIO) * SLOT_H;
+    var height = ev.dur * SLOT_H - 2;
+    var colW = container.offsetWidth > 0 ? (container.offsetWidth - 48) / 5 : 130;
+    var left = 48 + ev.dia * colW + 2;
+    var el = document.createElement('div');
+    el.className = 'grade-event';
+    el.style.cssText = 'top:'+top+'px;height:'+Math.max(height,18)+'px;left:'+left+'px;width:'+(colW-6)+'px;background:'+ev.cor+'22;color:'+ev.cor+';border-left:3px solid '+ev.cor;
+    el.innerHTML = ev.t;
+    container.appendChild(el);
+  });
+}
+function renderLista(){
+  var w = WEEKS[currentWeekIndex];
+  var el = document.getElementById('listaWrap');
+  el.innerHTML = DIAS.map(function(d,i){
+    var isHoje = (w.hoje===i);
+    var evs = w.events.filter(function(ev){return ev.dia===i;}).sort(function(a,b){return a.h-b.h;});
+    return '<div class="lista-dia"><div class="lista-dia-header '+(isHoje?'hoje':'')+'"><span>'+d.toUpperCase()+' '+w.datas[i]+'</span><span>'+evs.length+'ev</span></div>'+
+      (evs.length===0 ? '<div style="padding:8px 15px;font-size:11px;color:var(--text3);border-top:0.5px solid var(--border);font-weight:600">Sem eventos</div>' :
+      evs.map(function(ev){
+        var hoursBadge = ev.horas!=null
+          ? '<span class="lista-ev-hours">'+ev.horas.toFixed(2).replace('.',',')+'h</span>'
+          : '<span class="lista-ev-hours pend" title="'+(ev.notaHoras||'')+'">'+(ev.notaHoras||'a apontar')+'</span>';
+        var tags = (ev.temas && ev.temas.length)
+          ? '<div class="lista-ev-tags">'+ev.temas.map(function(tm){return '<span class="lista-ev-tag">'+tm+'</span>';}).join('')+'</div>'
+          : '';
+        return '<div class="lista-ev"><span class="ev-dot" style="background:'+ev.cor+'"></span>'+
+          '<div class="lista-ev-time">'+fmtH(ev.h)+'–'+fmtH(ev.h+ev.dur)+'</div>'+
+          '<div class="lista-ev-info"><div class="lista-ev-title">'+ev.t+' '+hoursBadge+'</div><div class="lista-ev-sub">'+ev.sub+'</div>'+tags+'</div></div>';
+      }).join('')) + '</div>';
+  }).join('');
+}
+function atualizarAgenda(btn){
+  var original = btn.textContent;
+  btn.textContent = '↻ Atualizando...';
+  btn.disabled = true;
+  setTimeout(function(){
+    renderGrade();
+    renderLista();
+    renderHorasResumo();
+    btn.textContent = '✓ Atualizado';
+    setTimeout(function(){ btn.textContent = original; btn.disabled = false; }, 1200);
+  }, 200);
+}
+window.atualizarAgenda = atualizarAgenda;
+function renderHorasResumo(){
+  var w = WEEKS[currentWeekIndex];
+  var el = document.getElementById('horasResumo');
+  if (!w.events.length){
+    el.innerHTML = '<div class="ch"><span class="ct">Apontamento de horas — '+w.label+'</span></div>'+
+      '<div class="cb"><div style="font-size:12px;color:var(--text3)">Nenhuma reunião registrada ainda para esta semana.</div></div>';
+    return;
+  }
+  var comHoras = w.events.filter(function(ev){return ev.horas!=null;});
+  var totalSemana = comHoras.reduce(function(s,ev){return s+ev.horas;},0);
+  var pendentes = w.events.filter(function(ev){return ev.horas==null;});
+  var porDia = DIAS.map(function(d,i){
+    var t = w.events.filter(function(ev){return ev.dia===i && ev.horas!=null;}).reduce(function(s,ev){return s+ev.horas;},0);
+    return {d:d, t:t};
+  });
+  el.innerHTML =
+    '<div class="ch"><span class="ct">Apontamento de horas — '+w.label+'</span></div>'+
+    '<div class="cb">'+
+      '<div class="horas-stats">'+
+        '<span><span class="horas-stat-num">'+totalSemana.toFixed(2).replace('.',',')+'h</span><span class="horas-stat-lbl">confirmadas nas transcrições</span></span>'+
+        '<span><span class="horas-stat-num" style="color:var(--amber)">'+pendentes.length+'</span><span class="horas-stat-lbl">pendentes de apontamento manual</span></span>'+
+      '</div>'+
+      '<div class="horas-por-dia">'+porDia.map(function(p){
+        return '<span class="horas-dia-chip"><span class="d">'+p.d+'</span>'+(p.t>0?p.t.toFixed(2).replace('.',','):'—')+'h</span>';
+      }).join('')+'</div>'+
+      (pendentes.length ? '<div style="font-size:11px;color:var(--amber);margin-top:10px;font-weight:600">Pendentes: '+pendentes.map(function(ev){return ev.t+' ('+(ev.notaHoras||'sem nota')+')';}).join(' · ')+'</div>' : '')+
+    '</div>';
+}
+
+/* ── Cobertura por cliente (barras) ── */
+var COVERAGE = []; /* preenchido pela assistente: {c:"Cliente", done:n, prog:n, na:n} */
+function renderCoverage(){
+  var el = document.getElementById('cbarBody');
+  el.innerHTML = COVERAGE.map(function(r){
+    var tot = r.done + r.prog + r.na;
+    var pd = Math.round(r.done/tot*100), pp = Math.round(r.prog/tot*100), pn = 100-pd-pp;
+    return '<div class="cbar-row"><span class="cbar-name">'+r.c+'</span>'+
+      '<div class="cbar-track"><div style="width:'+pd+'%;background:var(--green)"></div><div style="width:'+pp+'%;background:var(--teal)"></div><div style="width:'+pn+'%;background:var(--surface3)"></div></div>'+
+      '<span class="cbar-nums">'+tot+' itens</span></div>';
+  }).join('');
+}
+
+/* ── Clientes pendentes de follow-up ── */
+var FU_COLOR = {critico:'#E05252', atencao:'#D4903A', ok:'#3DB54A'};
+function parseDataBR2(d){
+  var p = (d||'').split('/');
+  if (p.length!==3) return null;
+  return new Date(Number(p[2]), Number(p[1])-1, Number(p[0]));
+}
+function diasDesde(dataBR){
+  var d = parseDataBR2(dataBR);
+  if (!d) return null;
+  var hoje = new Date();
+  hoje.setHours(0,0,0,0);
+  d.setHours(0,0,0,0);
+  return Math.round((hoje - d) / 86400000);
+}
+function nivelPorDias(dias){
+  if (dias===null) return 'atencao';
+  if (dias > 45) return 'critico';
+  if (dias >= 14) return 'atencao';
+  return 'ok';
+}
+function renderFollowups(){
+  var el = document.getElementById('fuList');
+  var items = STATE.followups.slice().sort(function(a,b){
+    return (parseDataBR2(a.ultimoContato)||0) - (parseDataBR2(b.ultimoContato)||0);
+  });
+  document.getElementById('fuCnt').textContent = items.length + ' clientes';
+  el.innerHTML = items.map(function(f){
+    var dias = diasDesde(f.ultimoContato);
+    var nivel = nivelPorDias(dias);
+    var diasLbl = dias===null ? '' : (' <span style="opacity:0.7">('+dias+'d)</span>');
+    return '<div class="taskitem clickable" style="align-items:flex-start;cursor:pointer" onclick="openFollowupModal(\''+f.id+'\')">'+
+      '<span class="ev-dot" style="background:'+FU_COLOR[nivel]+'"></span>'+
+      '<div style="flex:1;min-width:0">'+
+        '<div style="font-size:12.5px;font-weight:700">'+f.cliente+'</div>'+
+        '<div style="font-size:11px;color:var(--text2);margin-top:2px">Último: '+f.ultimoContato+diasLbl+'</div>'+
+        '<div style="font-size:11px;color:var(--text3);margin-top:1px">Próximo: '+f.proximo+'</div>'+
+        (f.ultimaNota ? '<div class="taskitem-comment">💬 '+f.ultimaNota+'</div>' : '')+
+      '</div></div>';
+  }).join('');
+}
+
+/* ── Modal — atualizar contato de um cliente ── */
+var pendingFollowupId = null;
+function openFollowupModal(id){
+  var f = STATE.followups.find(function(x){return x.id===id;});
+  if (!f) return;
+  pendingFollowupId = id;
+  document.getElementById('followupModalTitle').textContent = f.cliente;
+  document.getElementById('followupModalSub').textContent = 'Último contato: '+f.ultimoContato+(f.ultimaNota?' — '+f.ultimaNota:'');
+  document.getElementById('followupData').value = new Date().toISOString().slice(0,10);
+  document.getElementById('followupNota').value = '';
+  document.getElementById('followupProximo').value = f.proximo === 'Não marcado' ? '' : f.proximo.replace(/^Não marcado — /,'');
+  document.getElementById('followupModalOverlay').classList.add('open');
+  setTimeout(function(){ document.getElementById('followupNota').focus(); }, 50);
+}
+function closeFollowupModal(confirmar){
+  document.getElementById('followupModalOverlay').classList.remove('open');
+  if (confirmar && pendingFollowupId) {
+    var f = STATE.followups.find(function(x){return x.id===pendingFollowupId;});
+    if (f) {
+      var dataVal = document.getElementById('followupData').value;
+      if (dataVal) {
+        var parts = dataVal.split('-');
+        f.ultimoContato = parts[2]+'/'+parts[1]+'/'+parts[0];
+      }
+      var nota = document.getElementById('followupNota').value.trim();
+      if (nota) f.ultimaNota = nota;
+      var proximo = document.getElementById('followupProximo').value.trim();
+      if (proximo) f.proximo = proximo;
+      persist();
+    }
+  }
+  pendingFollowupId = null;
+  renderFollowups();
+}
+window.openFollowupModal = openFollowupModal;
+window.closeFollowupModal = closeFollowupModal;
+
+/* Tarefas recorrentes do checklistSemana: item carrega um campo `recorrente` = {frequencia:'quinzenal-segunda', ancora:'YYYY-MM-DD', ultimoCiclo:'YYYY-MM-DD'|null}.
+   `ancora` é a primeira segunda-feira em que a tarefa deve aparecer. A cada 14 dias a partir dela conta um novo ciclo.
+   Se o ciclo atual (calculado a partir de hoje) for diferente do `ultimoCiclo` salvo, a tarefa é reaberta (checked:false, comentário limpo) — reaparece pendente automaticamente a cada segunda sim, segunda não.
+   Antes da âncora, a tarefa fica marcada como concluída (fora da lista de pendentes) para não aparecer antes da hora. */
+function atualizarRecorrentes(){
+  var hoje = new Date(); hoje.setHours(0,0,0,0);
+  STATE.checklistSemana.forEach(function(item){
+    var r = item.recorrente;
+    if (!r || r.frequencia !== 'quinzenal-segunda') return;
+    var p = (r.ancora||'').split('-');
+    if (p.length!==3) return;
+    var ancora = new Date(Number(p[0]), Number(p[1])-1, Number(p[2]));
+    if (hoje < ancora){ item.checked = true; return; }
+    var diffDias = Math.round((hoje - ancora) / 86400000);
+    var ciclosPassados = Math.floor(diffDias / 14);
+    var cicloAtual = new Date(ancora.getTime() + ciclosPassados*14*86400000);
+    var cicloAtualISO = cicloAtual.getFullYear()+'-'+String(cicloAtual.getMonth()+1).padStart(2,'0')+'-'+String(cicloAtual.getDate()).padStart(2,'0');
+    if (r.ultimoCiclo !== cicloAtualISO){
+      item.checked = false;
+      item.comentario = null;
+      item.comentarioData = null;
+      r.ultimoCiclo = cicloAtualISO;
+    }
+  });
+}
+function loadAll(){
+  atualizarRecorrentes();
+  renderFoco();
+  renderProximasReunioes();
+  renderAllChecks();
+  renderSemanaAtual();
+  renderCoverage();
+  renderFollowups();
+  renderClientes();
+  updateBtnHoje();
+  updateDlbl();
+}
+loadAll();
+})();
+</script>
+
+
+
+
+
+</body></html>

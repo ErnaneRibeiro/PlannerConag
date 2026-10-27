@@ -1,0 +1,11 @@
+{
+  "name": "kit-nina-ferramentas",
+  "private": true,
+  "description": "Ferramentas de manutenção do Kit Nina CONAG",
+  "scripts": {
+    "gerar-planner-modelo": "node gerar-planner-modelo.js"
+  },
+  "dependencies": {
+    "jsdom": "^24.1.3"
+  }
+}

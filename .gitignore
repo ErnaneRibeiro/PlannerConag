@@ -1,0 +1,36 @@
+# ─────────────────────────────────────────────────────────────
+# Kit Nina CONAG — o que NUNCA deve subir para o repositório
+# Cada consultor trabalha na própria cópia; os dados dele ficam só na máquina dele.
+# ─────────────────────────────────────────────────────────────
+
+# Configuração pessoal do consultor (nome, e-mail, link do Planner, data de corte)
+config/consultor.md
+
+# Fichas, atas e registros de clientes — dados do consultor e dos clientes
+projetos/*
+!projetos/_template/
+!projetos/_template/**
+!projetos/_compartilhados/
+projetos/_compartilhados/*
+!projetos/_compartilhados/registro.modelo.md
+
+# Cópias de trabalho do Planner (o modelo em branco continua versionado)
+planner/*
+!planner/planner-modelo.html
+!planner/README.md
+
+# Relatórios, exportações e arquivos gerados
+relatorios/
+saidas/
+*.pdf
+!identidade visual/**/*.pdf
+
+# Configurações locais do Claude Code
+.claude/settings.local.json
+
+# Sistema
+desktop.ini
+Thumbs.db
+.DS_Store
+~$*
+node_modules/

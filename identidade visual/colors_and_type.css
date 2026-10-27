@@ -1,0 +1,291 @@
+/* ============================================================
+   CONAG AGRO SOLUÇÕES — Foundations
+   Colors, typography, spacing, radii, shadows, motion.
+   ============================================================ */
+
+/* --- Webfonts ---------------------------------------------- */
+/* Substitutions used while we wait for official Ford Antenna
+   and Quinoa Titling files:
+     Ford Antenna Light  →  Mulish (humanist sans, multi-weight)
+     Quinoa Titling Hvy  →  Archivo Black (geometric heavy display)
+   See README.md → Typography. */
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;800&family=Archivo+Black&display=swap');
+
+:root {
+  /* ============================================================
+     COLOR — Brand
+     ============================================================ */
+  /* Primary (from current 2026 guidance — supersedes brandbook
+     values #66b540 / #17b0b5) */
+  --conag-green:        #3DB54A;
+  --conag-teal:         #00B0A8;
+  --conag-gray-text:    #8C8C8C;
+
+  /* The signature: green → teal. Used on key words & accents. */
+  --conag-gradient:        linear-gradient(90deg, #3DB54A 0%, #00B0A8 100%); /* @kind color */
+  --conag-gradient-soft:   linear-gradient(135deg, rgba(61,181,74,0.08) 0%, rgba(0,176,168,0.08) 100%); /* @kind color */
+  --conag-gradient-strong: linear-gradient(135deg, #3DB54A 0%, #00B0A8 100%); /* @kind color */
+
+  /* Tints / shades (oklch-harmonized) */
+  --conag-green-700:    #2E9039;
+  --conag-green-600:    #36A642;
+  --conag-green-500:    #3DB54A;   /* base */
+  --conag-green-300:    #86D38E;
+  --conag-green-100:    #DCF1DE;
+  --conag-green-50:     #ECF8EE;
+
+  --conag-teal-700:     #008A83;
+  --conag-teal-600:     #009E97;
+  --conag-teal-500:     #00B0A8;   /* base */
+  --conag-teal-300:     #66CFC9;
+  --conag-teal-100:     #CCEFEE;
+  --conag-teal-50:      #E5F7F6;
+
+  /* ============================================================
+     COLOR — Neutrals (foreground / background scale)
+     ============================================================ */
+  --bg:                 #FFFFFF;
+  --bg-alt:             #F7F8F7;   /* page wash */
+  --bg-muted:           #EFF1EF;   /* cards on white */
+  --bg-inverse:         #161A17;   /* dark sections / footer */
+
+  --fg-1:               #1A1F1B;   /* headlines */
+  --fg-2:               #3A3F3B;   /* body */
+  --fg-3:               #8C8C8C;   /* gray-text (brand spec) */
+  --fg-4:               #B9BDB9;   /* placeholder / meta */
+  --fg-on-dark:         #F2F4F2;
+  --fg-on-brand:        #FFFFFF;
+
+  --border:             #E3E5E3;
+  --border-strong:      #C9CCC9;
+  --divider:            #EEEFEE;
+
+  /* ============================================================
+     COLOR — Semantic
+     ============================================================ */
+  --success:            #3DB54A;   /* = conag-green */
+  --info:               #00B0A8;   /* = conag-teal */
+  --warning:            #E5A53A;
+  --danger:             #D44A3A;
+
+  /* ============================================================
+     TYPOGRAPHY — Families & base scale
+     ============================================================ */
+  --font-display: "Archivo Black", "Quinoa Titling Heavy", "Impact", sans-serif;
+  --font-body:    "Mulish", "Ford Antenna", "Helvetica Neue", Arial, sans-serif;
+  --font-mono:    "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  /* Type scale (1.25 minor-third) */
+  --text-xs:   12px;
+  --text-sm:   14px;
+  --text-base: 16px;
+  --text-md:   18px;
+  --text-lg:   22px;
+  --text-xl:   28px;
+  --text-2xl:  36px;
+  --text-3xl:  48px;
+  --text-4xl:  64px;
+  --text-5xl:  84px;
+
+  /* Line heights */
+  --lh-tight:  1.05;  /* @kind font */
+  --lh-snug:   1.2;   /* @kind font */
+  --lh-normal: 1.45;  /* @kind font */
+  --lh-loose:  1.65;  /* @kind font */
+
+  /* Weights */
+  --w-light:    300; /* @kind font */
+  --w-regular:  400; /* @kind font */
+  --w-medium:   500; /* @kind font */
+  --w-semi:     600; /* @kind font */
+  --w-bold:     700; /* @kind font */
+  --w-heavy:    900; /* @kind font */
+
+  /* Tracking */
+  --track-tight:   -0.01em; /* @kind font */
+  --track-normal:  0;        /* @kind font */
+  --track-wide:    0.04em;  /* @kind font */
+  --track-eyebrow: 0.18em;  /* @kind font */ /* All-caps section labels (Conag signature) */
+
+  /* ============================================================
+     SPACING — 4-pt scale
+     ============================================================ */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  20px;
+  --space-6:  24px;
+  --space-8:  32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+
+  /* ============================================================
+     RADII
+     ============================================================ */
+  --r-xs:   4px;
+  --r-sm:   6px;
+  --r-md:   10px;
+  --r-lg:   14px;
+  --r-xl:   20px;
+  --r-2xl:  28px;
+  --r-pill: 999px;
+
+  /* ============================================================
+     SHADOWS — Subtle, agribusiness-appropriate
+     ============================================================ */
+  --shadow-1: 0 1px 2px rgba(20, 30, 22, 0.04), 0 1px 1px rgba(20, 30, 22, 0.03);
+  --shadow-2: 0 2px 6px rgba(20, 30, 22, 0.05), 0 1px 2px rgba(20, 30, 22, 0.04);
+  --shadow-3: 0 8px 24px rgba(20, 30, 22, 0.08), 0 2px 6px rgba(20, 30, 22, 0.04);
+  --shadow-4: 0 18px 48px rgba(20, 30, 22, 0.12), 0 6px 12px rgba(20, 30, 22, 0.06);
+  --shadow-brand: 0 18px 36px rgba(0, 176, 168, 0.18), 0 4px 12px rgba(61, 181, 74, 0.10);
+
+  /* ============================================================
+     MOTION
+     ============================================================ */
+  --ease-standard: cubic-bezier(0.2, 0.6, 0.2, 1); /* @kind other */
+  --ease-out:      cubic-bezier(0.16, 1, 0.3, 1);  /* @kind other */
+  --ease-in:       cubic-bezier(0.4, 0, 1, 1);     /* @kind other */
+  --dur-fast:   140ms; /* @kind other */
+  --dur-base:   220ms; /* @kind other */
+  --dur-slow:   420ms; /* @kind other */
+
+  /* ============================================================
+     LAYOUT
+     ============================================================ */
+  --container:    1240px; /* @kind spacing */
+  --container-sm: 880px;  /* @kind spacing */
+  --gutter:       24px;   /* @kind spacing */
+}
+
+/* ============================================================
+   SEMANTIC TYPE STYLES
+   ============================================================ */
+.h-display,
+h1.display {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(48px, 6.4vw, var(--text-5xl));
+  line-height: var(--lh-tight);
+  letter-spacing: var(--track-tight);
+  color: var(--fg-1);
+  text-transform: none;
+}
+
+h1, .h1 {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(36px, 4.6vw, var(--text-4xl));
+  line-height: var(--lh-tight);
+  letter-spacing: var(--track-tight);
+  color: var(--fg-1);
+  margin: 0;
+}
+
+h2, .h2 {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: var(--text-3xl);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--track-tight);
+  color: var(--fg-1);
+  margin: 0;
+}
+
+h3, .h3 {
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: var(--text-xl);
+  line-height: var(--lh-snug);
+  color: var(--fg-1);
+  margin: 0;
+}
+
+h4, .h4 {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: var(--text-lg);
+  line-height: var(--lh-snug);
+  color: var(--fg-1);
+  margin: 0;
+}
+
+p, .p {
+  font-family: var(--font-body);
+  font-weight: var(--w-regular);
+  font-size: var(--text-base);
+  line-height: var(--lh-normal);
+  color: var(--fg-2);
+  margin: 0;
+  text-wrap: pretty;
+}
+
+.lede {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: var(--text-lg);
+  line-height: var(--lh-normal);
+  color: var(--fg-2);
+}
+
+.eyebrow {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: var(--text-xs);
+  letter-spacing: var(--track-eyebrow);
+  text-transform: uppercase;
+  color: var(--fg-3);
+}
+
+.eyebrow--brand {
+  color: var(--conag-teal-700);
+}
+
+small, .meta {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--fg-3);
+}
+
+code, kbd, .mono {
+  font-family: var(--font-mono);
+  font-size: 0.95em;
+}
+
+/* ============================================================
+   THE SIGNATURE — gradient text on key words
+     Use on: highlighted nouns ("financiável", "criterioso",
+     "certezas"), big metric numbers, hero accents.
+   ============================================================ */
+.highlight,
+.gradient-text {
+  background: var(--conag-gradient);
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-rule {
+  height: 4px;
+  border: 0;
+  background: var(--conag-gradient);
+  border-radius: 999px;
+}
+
+.gradient-bg {
+  background: var(--conag-gradient);
+  color: var(--fg-on-brand);
+}
+
+/* ============================================================
+   FOCUS — accessibility
+   ============================================================ */
+:focus-visible {
+  outline: 2px solid var(--conag-teal-500);
+  outline-offset: 2px;
+  border-radius: var(--r-xs);
+}
